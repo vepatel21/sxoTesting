@@ -1,0 +1,669 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01PG1FWH1V1125WXVK9rVsFZtNkFMcOYqte",
+    "name": "Test Table",
+    "title": "Test Table",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "tabletype_01PIJ6UZAQYVB2E8BtJeLbT56xTskWMfHvy",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Name": "LifeIsGood"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "local_length",
+          "type": "datatype.table",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01PIJA66D21YD0xMc7rxgopKwy1KCscWysR",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO",
+        "properties": {
+          "value": [
+            {
+              "column_data": {
+                "Age": "23",
+                "Gender": "F",
+                "ID": 4564,
+                "Location": "",
+                "Name": "Julia",
+                "l_Name": ""
+              }
+            },
+            {
+              "column_data": {
+                "Age": "26",
+                "Gender": "M",
+                "ID": 76876,
+                "Name": "Jorge"
+              }
+            }
+          ],
+          "scope": "local",
+          "name": "Local Table 1",
+          "type": "datatype.table",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01PG1T3BX9B8M1HIc3D8nekpiCens5iw5kx",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Test Table",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01PK8COGQF3KD0DZZFICWgRUGjI4fTfCSnV",
+        "name": "Add Row to Table",
+        "title": "Add Local Row to Table",
+        "type": "core.addrowtotable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Local Row to Table",
+          "input_table": "$workflow.definition_workflow_01PG1FWH1V1125WXVK9rVsFZtNkFMcOYqte.local.variable_workflow_01PG1T3BX9B8M1HIc3D8nekpiCens5iw5kx$",
+          "row": [
+            {
+              "key": "ID",
+              "type": "integer",
+              "value": 78564
+            },
+            {
+              "key": "Name",
+              "type": "string",
+              "value": "johnny"
+            },
+            {
+              "key": "Gender",
+              "type": "string",
+              "value": "M"
+            },
+            {
+              "key": "Age",
+              "type": "string",
+              "value": "41"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01PK8CPUQHKMU4Jk3pfmTgUWKEvJu1WOVYY",
+        "name": "Add Row to Table",
+        "title": "Add Global Row to Table",
+        "type": "core.addrowtotable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Global Row to Table",
+          "input_table": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+          "row": [
+            {
+              "key": "FirstName",
+              "type": "string",
+              "value": "partha"
+            },
+            {
+              "key": "LastName",
+              "type": "string",
+              "value": "seethal"
+            },
+            {
+              "key": "ID",
+              "type": "integer",
+              "value": 435342
+            },
+            {
+              "key": "Gender",
+              "type": "string",
+              "value": "M"
+            },
+            {
+              "key": "Location",
+              "type": "string",
+              "value": "San Fran"
+            },
+            {
+              "key": "zip",
+              "type": "integer",
+              "value": 95178
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01PK8DZPMJUYJ1AopOaT4nzUHvsXwKDRGqG",
+        "name": "Select from Table",
+        "title": "Select  global from Table",
+        "type": "core.selectfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "columns": [
+            {
+              "column_name": "LastName",
+              "column_type": "string"
+            },
+            {
+              "column_name": "Location",
+              "column_type": "string"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Select  global from Table",
+          "input_table": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+          "number_of_rows": {
+            "at_most": true,
+            "first_n_rows": 5
+          },
+          "persist_output": true,
+          "skip_execution": false,
+          "sorting": {
+            "column_name": "LastName",
+            "order": "asc",
+            "sort_by": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01Q8VPCEYRALN6lnrjHilhSRfv9fI8QADY3",
+        "name": "Update Row in Table",
+        "title": "Update Row in Table",
+        "type": "core.updaterowintable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "columns": [
+            {
+              "column_name": "FirstName",
+              "column_type": "string"
+            },
+            {
+              "column_name": "LastName",
+              "column_type": "string"
+            },
+            {
+              "column_name": "ID",
+              "column_type": "integer"
+            },
+            {
+              "column_name": "Gender",
+              "column_type": "string"
+            },
+            {
+              "column_name": "Location",
+              "column_type": "string"
+            },
+            {
+              "column_name": "zip",
+              "column_type": "integer"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Update Row in Table",
+          "input_table": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+          "row": [
+            {
+              "key": "FirstName",
+              "type": "string",
+              "value": "Trupti"
+            },
+            {
+              "key": "LastName",
+              "type": "string",
+              "value": "Shah"
+            },
+            {
+              "key": "ID",
+              "type": "integer",
+              "value": 35456
+            },
+            {
+              "key": "Gender",
+              "type": "string",
+              "value": "F"
+            },
+            {
+              "key": "Location",
+              "type": "string",
+              "value": "Hayward"
+            },
+            {
+              "key": "zip",
+              "type": "integer",
+              "value": 95323
+            }
+          ],
+          "rows": {
+            "all_rows": true
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01Q230NOARH0G6cvnHPJgNhQ2H1lL662ZFv",
+        "name": "Delete from Table",
+        "title": "Delete from Table",
+        "type": "core.deleterowfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Delete from Table",
+          "input_table": "$workflow.definition_workflow_01PG1FWH1V1125WXVK9rVsFZtNkFMcOYqte.local.variable_workflow_01PIJA66D21YD0xMc7rxgopKwy1KCscWysR$",
+          "rows": {
+            "all_rows": true
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2": {
+      "unique_name": "variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2",
+      "schema_id": "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "FirstName": "Dope",
+              "Gender": "F",
+              "ID": 45434,
+              "LastName": "Patel",
+              "Location": "San Francisco",
+              "zip": 43543
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Venakta",
+              "Gender": "F",
+              "ID": 65645,
+              "LastName": "Patel",
+              "Location": "San Francisco",
+              "zip": 95116
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Hasrsha",
+              "Gender": "F",
+              "ID": 768965,
+              "LastName": "Sunni",
+              "Location": "San Francisco",
+              "zip": 87876
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Janki",
+              "Gender": "F",
+              "ID": 87643,
+              "LastName": "Umaraliya",
+              "Location": "San Francisco",
+              "zip": 13540
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Ruchita",
+              "Gender": "F",
+              "ID": 87650,
+              "LastName": "Patel",
+              "Location": "San Francisco",
+              "zip": 87698
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "",
+              "Gender": "F",
+              "ID": 0,
+              "LastName": "",
+              "Location": "San Francisco",
+              "zip": 0
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "",
+              "Gender": "F",
+              "ID": 0,
+              "LastName": "",
+              "Location": "San Francisco",
+              "zip": 0
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "",
+              "Gender": "F",
+              "ID": 0,
+              "LastName": "",
+              "Location": "San Francisco",
+              "zip": 0
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "Gender": "F",
+              "Location": "San Francisco"
+            }
+          },
+          {
+            "column_data": {
+              "Gender": "F",
+              "Location": "San Francisco"
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "partha",
+              "Gender": "F",
+              "ID": 435342,
+              "LastName": "seethal",
+              "Location": "San Francisco",
+              "zip": 95178
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "F",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "San Francisco",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "M",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "hartford",
+              "zip": 78532
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Charlie",
+              "Gender": "M",
+              "ID": 543635,
+              "LastName": "Put",
+              "Location": "hartford",
+              "zip": 78532
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Cisco Employees",
+        "type": "datatype.table",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO": {
+      "unique_name": "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO",
+      "data_type": "datatype.tabletype",
+      "display_name": "Test_Customer Table",
+      "columns": [
+        {
+          "name": "zip",
+          "title": "zipcode",
+          "type": "integer"
+        },
+        {
+          "name": "FirstName",
+          "title": "First Name",
+          "type": "string"
+        },
+        {
+          "name": "Gender",
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "name": "ID",
+          "title": "ID",
+          "type": "integer"
+        },
+        {
+          "name": "LastName",
+          "title": "Last Name",
+          "type": "string"
+        },
+        {
+          "name": "Location",
+          "title": "Location",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO": {
+      "unique_name": "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO",
+      "data_type": "datatype.tabletype",
+      "display_name": "Test_2",
+      "columns": [
+        {
+          "name": "Age",
+          "title": "Age",
+          "type": "string"
+        },
+        {
+          "name": "Gender",
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "name": "ID",
+          "title": "employee_id",
+          "type": "integer"
+        },
+        {
+          "name": "Name",
+          "title": "First_name",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01PIJ6UZAQYVB2E8BtJeLbT56xTskWMfHvy": {
+      "unique_name": "tabletype_01PIJ6UZAQYVB2E8BtJeLbT56xTskWMfHvy",
+      "data_type": "datatype.tabletype",
+      "display_name": "Max_Length",
+      "columns": [
+        {
+          "maxLength": 20,
+          "maximum": 0,
+          "minimum": 0,
+          "name": "Name",
+          "title": "First_name",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
