@@ -1,0 +1,1394 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01HZWT8P1HRKC2qYL7r4s48m76LRVqqtfN7",
+    "name": "Regression_CA Python Test- HTTP",
+    "title": "Regression_CA Python Test- HTTP",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Regression_CA Python Test- HTTP",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01QEWN1YJJEKW3dsIomfkgiDQ9L66NnhE6H",
+        "name": "Table Flow VE",
+        "title": "Table Flow VE",
+        "type": "workflow.sub_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Table Flow VE",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": true,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01Q1MUCDYZZXC2FG3DMgJxExE3EQAK3bKcX"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01HZWTCXMCG6D1KVh100sv7wApdU6lYMmHC",
+        "name": "Parallel Block",
+        "title": "Python Script",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Python Script",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01HZWTE2XFMLQ6sUbE0q73aupUYmGRvexsn",
+            "name": "Parallel Branch",
+            "title": "EXECUTE PYTHON SCRIPT 3",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "EXECUTE PYTHON SCRIPT 3",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01HZWTFBMOBUB3aWtdVnZ07YE0ByyRjZlO6",
+                "name": "Execute Python Script",
+                "title": "Basic Test",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Basic Test",
+                  "script": "print(\"Action Orchestrator Workflow Use Action Orchestrator to automate an IT es by defining a workflow, then running instances of the defined workflow. The workflow defines the automation steps (activities), the logic or flow between these steps, and how to flow data from one step to the next. The engine manages the state and lifecycle of a workflow, bringing it into existence, running its steps, and finally terminating it. During and (by default) after workflow execution, the engine retains information so that operators can view the status of their running workflows. Related Topics Creating a Basic Workflow Category Action Orchestrator workflows, tasks and several other elements of the functional model can be placed into categories. Categories in Action Orchestrator work just like Microsoft Outlook categories with respect to tagging objects for grouping in the UI. Objects such as workflows can be in multiple categories. For example, a workflow can be both a network best practice and a security best practice. The Categories feature provides a way to organize your workflows based on your organizational or functional requirements. Action Orchestrator ships with predefined categories but provides the functionality for you to create your own business-specific categories. When creating a workflow, you can assign the workflow to a category. You can also add other categories to a category to create a hierarchy. Activities Activities are the steps in a workflow. They are customized to perform integration with some environment. Activities can be provided by adapters (binary components in Action Orchestrator) or by automation packs. Therefore both adapters and automation packs can contribute to a particular integration. Workflow activities provide the logic or flow aspects of the workflow. Workflow activities are exposed in the Logic tab of the workflow Editor. Related Topic Adding Logic Components to a Workflow Conditions Many workflow logic elements perform tests to control execution. Conditions implement these tests. For example, a Condition Branch can split execution to take one path if a condition exists, and another if it does not. A While Block can iterate execution while a condition exists. Conditions can also be placed on a workflow trigger, allowing control of situations in which the workflow can run. For example, a scenario might require the workflow to run during two different time ranges, which would require two triggers: one trigger with an 8am-5pm condition and a totally different trigger with a 5pm-8am condition. There are two basic types of conditions: Composite conditions A composite condition builds a compound condition from individual conditions. It allows combining conditions with AND logic, where all of the conditions must be TRUE for the composite condition to be TRUE, or OR logic, where any of the conditions can be TRUE for the composite condition to return TRUE. Compound conditions can be used in other compound conditions to produce complex logic, such as ((X AND Y) OR (A AND B)). Account Keys A account key record stores information about the user security context and passes this information to the adapters for activity execution, event monitoring, and some target operations (such as availability monitoring and discovery). Account Key instances can be shared across targets and workflows. For example, if a single set of credentials can be used to access a set of network devices, only one account key instance must be created. When it is time to change the credentials, users can go to the account keys list and edit the single instance to change the credentials. This greatly reduces the configuration load when credentials tend to change often in some environments. Account Key credentials can be used in a workflow, but no workflow can retrieve credentials. If your workflow must access credentials, use hidden string variables. The account key user concept allows the product to implement delegation. For example: An IT help desk operator comes to Action Orchestrator to run a workflow. This operator is presented with a list of workflows that Action Orchestrator role-based access control allows them to run. These workflows might include activities that require a level of security permission that the operator does not natively have. The operator can perform actions as a part of the established workflow that are not possible for them to perform manually. This concept can also be leveraged to reveal where operators make changes outside of a workflow. By examining auditing logs such as Windows logs for things being done under the operator's credentials rather than the Action Orchestrator  account key user credentials, it is possible to determine how the operator is doing things outside of workflow and determine how to close things down. So a side effect of Action Orchestrator automation is that customers might be able to tighten security in their environment. Targets Targets are instances created from a target type. For example: A terminal target allows SSH or telnet to some specific network device. A database target allows connection to specific supported databases. A workflow or activity executes an action within some environment.\")",
+                  "script_arguments": [
+                    ""
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTGPNTY1X16V6YKcRQvKR61LPWe0qIQ",
+                "name": "Execute Python Script",
+                "title": "Verify Leap Year",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Verify Leap Year",
+                  "script": "# Python program to check if year is a leap year or not\n\nyear = 2000\n\n# To get year (integer input) from the user\n# year = int(input(\"Enter a year: \"))\n\nif (year % 4) == 0:\n   if (year % 100) == 0:\n       if (year % 400) == 0:\n           print(\"{0} is a leap year\".format(year))\n       else:\n           print(\"{0} is not a leap year\".format(year))\n   else:\n       print(\"{0} is a leap year\".format(year))\nelse:\n   print(\"{0} is not a leap year\".format(year))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTIGQZIYD17yMZJIvwqS4hqKfrLGeNT",
+                "name": "Execute Python Script",
+                "title": "Matrics Additions",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Matrics Additions",
+                  "script": "# This program is to add two given matrices\n# We are using the concept of nested lists to represent matrix\n\n# first matrix\nM1 = [[1, 1, 1],\n      [1, 1, 1],\n      [1, 1, 1]]\n\n# second matrix\nM2 = [[1, 2, 3],\n      [4, 5, 6],\n      [7, 8, 9]]\n\n# In this matrix we will store the sum of above matrices\n# we have initialized all the elements of this matrix as zero\nsum = [[0, 0, 0],\n       [0, 0, 0],\n       [0, 0, 0]]\n\n# iterating the matrix\n# rows: number of nested lists in the main list\n# columns: number of elements in the nested lists\nfor i in range(len(M1)):\n    for j in range(len(M1[0])):\n        sum[i][j] = M1[i][j] + M2[i][j]\n\n# displaying the output matrix\nfor num in sum:\n    print(num)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTJVD6D4P0hC3QSNqRByX8hJP42uv8g",
+                "name": "Execute Python Script",
+                "title": "Sleep 5 Seconds using Python script",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Sleep 5 Seconds using Python script",
+                  "script": "import time\n\ntime.sleep(5)\nfrom datetime import datetime",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTLKLKFTH4d8FXmfaZoKg6f9c7o6Wx2",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script for getting current Date",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script for getting current Date",
+                  "script": "from datetime import date\ntoday = date.today()\nprint(\"Today's date:\", today)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTN99I2KZ32sIY4FGjJUghp9sn1ALAA",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script_TCP_IP",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script_TCP_IP",
+                  "script": "import socket\n\nTCP_IP = 'yahoo.com'\nTCP_PORT = 443\nBUFFER_SIZE = 1024\nMESSAGE = 'Hello, World'.encode()\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\ns.connect((TCP_IP, TCP_PORT))\ns.send(MESSAGE)\ndata = s.recv(BUFFER_SIZE)\ns.close()\nprint(\"received data:\", data, MESSAGE)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01HZWTOLZNCHJ1jaJcxOuL5GA0YtspGiKO0",
+            "name": "Parallel Branch",
+            "title": "EXECUTE PYTHON SCRIPT 3",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "EXECUTE PYTHON SCRIPT 3",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01HZWTPDZN56K4cvy1wfoxrXfz1JIMbziPs",
+                "name": "Execute Python Script",
+                "title": "Time Conversion 24 houurs to 12 hours",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Time Conversion 24 houurs to 12 hours",
+                  "script": "# Python program to convert time \n# from 12 hour to 24 hour format \n\n# Function to convert the date format \ndef convert24(str1): \n\t\n\t# Checking if last two elements of time \n\t# is AM and first two elements are 12 \n\tif str1[-2:] == \"AM\" and str1[:2] == \"12\": \n\t\treturn \"00\" + str1[2:-2] \n\t\t\n\t# remove the AM\t \n\telif str1[-2:] == \"AM\": \n\t\treturn str1[:-2] \n\t\n\t# Checking if last two elements of time \n\t# is PM and first two elements are 12 \n\telif str1[-2:] == \"PM\" and str1[:2] == \"12\": \n\t\treturn str1[:-2] \n\t\t\n\telse: \n\t\t\n\t\t# add 12 to hours and remove PM \n\t\treturn str(int(str1[:2]) + 12) + str1[2:8] \n\n# Driver Code\t\t \nprint(convert24(\"08:05:45 PM\"))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTQSDRZND0qSdJRmOz1aIP8ax1h1WeT",
+                "name": "Execute Python Script",
+                "title": "Grade Calculator ",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Grade Calculator ",
+                  "script": "# Python code for the Grade \n# Calculator program in action \n  \n# Creating a dictionary which  \n# consists of the student name, \n# assignment result test results \n# and their respective lab results \n  \n# 1. Jack's dictionary \njack = { \"name\":\"Jack Frost\", \n         \"assignment\" : [80, 50, 40, 20], \n         \"test\" : [75, 75], \n         \"lab\" : [78.20, 77.20] \n       } \n         \n# 2. James's dictionary \njames = { \"name\":\"James Potter\", \n          \"assignment\" : [82, 56, 44, 30], \n          \"test\" : [80, 80], \n          \"lab\" : [67.90, 78.72] \n        } \n  \n# 3. Dylan's dictionary \ndylan = { \"name\" : \"Dylan Rhodes\", \n          \"assignment\" : [77, 82, 23, 39], \n          \"test\" : [78, 77], \n          \"lab\" : [80, 80] \n        } \n          \n# 4. Jessica's dictionary \njess = { \"name\" : \"Jessica Stone\", \n         \"assignment\" : [67, 55, 77, 21], \n         \"test\" : [40, 50], \n         \"lab\" : [69, 44.56] \n       } \n         \n# 5. Tom's dictionary \ntom = { \"name\" : \"Tom Hanks\", \n        \"assignment\" : [29, 89, 60, 56], \n        \"test\" : [65, 56], \n        \"lab\" : [50, 40.6] \n      } \n  \n# Function calculates average  \ndef get_average(marks): \n    total_sum = sum(marks) \n    total_sum = float(total_sum) \n    return total_sum / len(marks) \n  \n# Function calculates total average \ndef calculate_total_average(students): \n    assignment = get_average(students[\"assignment\"]) \n    test = get_average(students[\"test\"]) \n    lab = get_average(students[\"lab\"]) \n  \n    # Return the result based \n    # on weightage supplied \n    # 10 % from assignments \n    # 70 % from test \n    # 20 % from lab-works \n    return (0.1 * assignment +\n            0.7 * test + 0.2 * lab) \n  \n  \n# Calculate letter grade of each student \ndef assign_letter_grade(score): \n    if score \u003e= 90: return \"A\"\n    elif score \u003e= 80: return \"B\"\n    elif score \u003e= 70: return \"C\"\n    elif score \u003e= 60: return \"D\"\n    else : return \"E\"\n  \n# Function to calculate the total \n# average marks of the whole class \ndef class_average_is(student_list): \n    result_list = [] \n  \n    for student in student_list: \n        stud_avg = calculate_total_average(student) \n        result_list.append(stud_avg) \n        return get_average(result_list) \n  \n# Student list consisting the \n# dictionary of all students \nstudents = [jack, james, dylan, jess, tom] \n  \n# Iterate through the students list \n# and calculate their respective \n# average marks and letter grade \nfor i in students : \n    print(i[\"name\"]) \n    print(\"=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\") \n    print(\"Average marks of %s is : %s \" %(i[\"name\"], \n                         calculate_total_average(i))) \n                           \n    print(\"Letter Grade of %s is : %s\" %(i[\"name\"], \n    assign_letter_grade(calculate_total_average(i)))) \n      \n    print() \n  \n  \n# Calculate the average of whole class \nclass_av = class_average_is(students) \n  \nprint( \"Class Average is %s\" %(class_av)) \nprint(\"Letter Grade of the class is %s \" \n        %(assign_letter_grade(class_av)))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTSH223QL0tJgbri5y8pVJNI4FYQXOS",
+                "name": "Execute Python Script",
+                "title": "Getting current dates in different formats",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Getting current dates in different formats",
+                  "script": "from datetime import date\ntoday = date.today()\n# dd/mm/YY\nd1 = today.strftime(\"%d/%m/%Y\")\nprint(\"d1 =\", d1)\n# Textual month, day and year\t\nd2 = today.strftime(\"%B %d, %Y\")\nprint(\"d2 =\", d2)\n# mm/dd/y\nd3 = today.strftime(\"%m/%d/%y\")\nprint(\"d3 =\", d3)\n# Month abbreviation, day and year\t\nd4 = today.strftime(\"%b-%d-%Y\")\nprint(\"d4 =\", d4)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTU7QMRKR4BDGTIneok5dvNZCBVu3CQ",
+                "name": "Execute Python Script",
+                "title": "Make HTTP Call",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Make HTTP Call",
+                  "script": "import requests\nresult = requests.get('https://www.google.com')",
+                  "script_queries": [
+                    {
+                      "script_query": "result",
+                      "script_query_name": "result",
+                      "script_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTVXM8SR414ujhcudHFErC78m09HAXr",
+                "name": "Execute Python Script",
+                "title": "Get  HTTP Call response",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Get  HTTP Call response",
+                  "script": "import requests\na = requests.get('http://www.google.com')\nStatusCode = a.status_code\nText = a.text\nJson = a.json\nHeaders = a.headers",
+                  "script_queries": [
+                    {
+                      "script_query": "StatusCode",
+                      "script_query_name": "StatusCode ",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Text",
+                      "script_query_name": "Text ",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Json",
+                      "script_query_name": "Json",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Headers",
+                      "script_query_name": "Headers ",
+                      "script_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01HZWTXORMI5748uBpoF8lTK9azzO8khSBR",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script_UDP",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script_UDP",
+                  "script": "import socket\nUDP_IP = \"52.205.242.66\"\nUDP_PORT = 443\nMESSAGE = \"Hello, World!\".encode()\nprint (\"UDP target IP:\", UDP_IP)\nprint (\"UDP target port:\", UDP_PORT)\nprint (\"message:\", MESSAGE)\nsock = socket.socket(socket.AF_INET, # Internet\nsocket.SOCK_DGRAM) # UDP\nsock.sendto(MESSAGE, (UDP_IP, UDP_PORT))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01HZWTYQKF2PS7kkCHOURJGGSpFv2xyMdHr",
+        "name": "Condition Block",
+        "title": "All Action Should Pass",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "All Action Should Pass",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01HZWU13COWYS1tc7uaOAxS2bl9lOkZMD5W",
+            "name": "Condition Branch",
+            "title": "true == 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_01HZWTFBMOBUB3aWtdVnZ07YE0ByyRjZlO6.output.succeeded$",
+                            "operator": "eq",
+                            "right_operand": true
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_01HZWTJVD6D4P0hC3QSNqRByX8hJP42uv8g.output.succeeded$",
+                            "operator": "eq",
+                            "right_operand": true
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01HZWTPDZN56K4cvy1wfoxrXfz1JIMbziPs.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": true
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01HZWTU7QMRKR4BDGTIneok5dvNZCBVu3CQ.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01HZWTVXM8SR414ujhcudHFErC78m09HAXr.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": true
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01HZWTN99I2KZ32sIY4FGjJUghp9sn1ALAA.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01HZWTXORMI5748uBpoF8lTK9azzO8khSBR.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "true == 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01HZWU26GUHPL5GRviKlqe1O3SXdz2jjepq",
+                "name": "Set Variables",
+                "title": "PASS",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "PASS",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$global.variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo.global.variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo$",
+                      "variable_value_new": "✔✅All Python  Actions Passed"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01HZWU47M0VNZ20ZvFDdDZljUjyUcQyJVYy",
+            "name": "Condition Branch",
+            "title": "Fail !== 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01HZWTFBMOBUB3aWtdVnZ07YE0ByyRjZlO6.output.succeeded$",
+                              "operator": "ne",
+                              "right_operand": true
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01HZWTJVD6D4P0hC3QSNqRByX8hJP42uv8g.output.succeeded$",
+                              "operator": "ne",
+                              "right_operand": true
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_01HZWTLKLKFTH4d8FXmfaZoKg6f9c7o6Wx2.output.succeeded$",
+                            "operator": "ne",
+                            "right_operand": true
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01HZWTPDZN56K4cvy1wfoxrXfz1JIMbziPs.output.succeeded$",
+                          "operator": "ne",
+                          "right_operand": true
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01HZWTU7QMRKR4BDGTIneok5dvNZCBVu3CQ.output.succeeded$",
+                        "operator": "ne",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01HZWTVXM8SR414ujhcudHFErC78m09HAXr.output.succeeded$",
+                      "operator": "ne",
+                      "right_operand": true
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01HZWTN99I2KZ32sIY4FGjJUghp9sn1ALAA.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01HZWTXORMI5748uBpoF8lTK9azzO8khSBR.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail !== 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01HZWU5F9I87Z3DcPWVCKsSkxuCifgvsZFp",
+                "name": "Set Variables",
+                "title": "FAIL",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "FAIL",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$global.variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo.global.variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo$",
+                      "variable_value_new": "❌🔴Python Actions got Failed\nPlease check the Instnace : $workflow.definition_workflow_01HZWT8P1HRKC2qYL7r4s48m76LRVqqtfN7.output.instance_id$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01HZWU6JSL4WT7UVm4AvQ4TMFVHQtYgVYyE",
+        "name": "Set Variables",
+        "title": "Email Tempalate",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Email Tempalate",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+              "variable_value_new": "$global.variable_01PFWS4XR6J8J3oRIYNDQ1uNfqDcIBWaITU.global.variable_01PFWS4XR6J8J3oRIYNDQ1uNfqDcIBWaITU$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9",
+      "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+    ]
+  },
+  "categories": {
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    },
+    "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9": {
+      "unique_name": "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9",
+      "name": "Regression",
+      "title": "Regression",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W": {
+      "unique_name": "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W",
+      "name": "Git password testing",
+      "title": "Git password testing",
+      "type": "runtime_user.git_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "Git password testing",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  },
+  "variables": {
+    "variable_01PFWS4XR6J8J3oRIYNDQ1uNfqDcIBWaITU": {
+      "unique_name": "variable_01PFWS4XR6J8J3oRIYNDQ1uNfqDcIBWaITU",
+      "schema_id": "tabletype_01OJKIQC3F5304tzDpj6xD8U4PVrtkoHDaW",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": ""
+            }
+          },
+          {
+            "column_data": {
+              "Integer": 15
+            }
+          },
+          {
+            "column_data": {
+              "Integer": 15
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 5.8,
+              "Integer": 15,
+              "String": ""
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": "DopeD"
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 5.9,
+              "Integer": 15,
+              "String": "Hi"
+            }
+          },
+          {
+            "column_data": {
+              "Integer": 15
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": "Hello"
+            }
+          },
+          {
+            "column_data": {
+              "Integer": 15
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 1.3,
+              "Integer": 15,
+              "String": ""
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": ""
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": ""
+            }
+          },
+          {
+            "column_data": {
+              "Boolean": false,
+              "Date": "0001-01-01T00:00:00+00:00",
+              "Decimal": 0,
+              "Integer": 15,
+              "String": ""
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "AO_AdapterTable_01_06_03_001",
+        "type": "datatype.table",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2": {
+      "unique_name": "variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2",
+      "schema_id": "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          },
+          {
+            "column_data": {
+              "FirstName": "Trupti",
+              "Gender": "F",
+              "ID": 35456,
+              "LastName": "Shah",
+              "Location": "Hayward",
+              "zip": 95323
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "Cisco Employees",
+        "type": "datatype.table",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    },
+    "variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo": {
+      "unique_name": "variable_01Q32PUPCK12D6aauQoLpVC3AuRRAYG5LXo",
+      "properties": {
+        "value": "✔✅All Python  Actions Passed",
+        "scope": "global",
+        "name": "PT_Gbl_ForPythonString",
+        "type": "datatype.string",
+        "is_required": false,
+        "is_invisible": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_01OJKIQC3F5304tzDpj6xD8U4PVrtkoHDaW": {
+      "unique_name": "tabletype_01OJKIQC3F5304tzDpj6xD8U4PVrtkoHDaW",
+      "data_type": "datatype.tabletype",
+      "display_name": "All Data Type Table ( option) ",
+      "description": "all data type table all column is option",
+      "columns": [
+        {
+          "name": "Integer",
+          "title": "Integer",
+          "type": "integer"
+        },
+        {
+          "name": "String",
+          "title": "String",
+          "type": "string"
+        },
+        {
+          "name": "Boolean",
+          "title": "Boolean",
+          "type": "boolean"
+        },
+        {
+          "name": "Date",
+          "title": "Date",
+          "type": "date"
+        },
+        {
+          "name": "Decimal",
+          "title": "Decimal",
+          "type": "number"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO": {
+      "unique_name": "tabletype_01PG1FBCE304R22E2dAsuYoRsVvFuUepUTO",
+      "data_type": "datatype.tabletype",
+      "display_name": "Test_Customer Table",
+      "columns": [
+        {
+          "name": "Gender",
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "name": "ID",
+          "title": "ID",
+          "type": "integer"
+        },
+        {
+          "name": "LastName",
+          "title": "Last Name",
+          "type": "string"
+        },
+        {
+          "name": "Location",
+          "title": "Location",
+          "type": "string"
+        },
+        {
+          "name": "zip",
+          "title": "zipcode",
+          "type": "integer"
+        },
+        {
+          "name": "FirstName",
+          "title": "First Name",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    },
+    "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO": {
+      "unique_name": "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO",
+      "data_type": "datatype.tabletype",
+      "display_name": "Test_2",
+      "columns": [
+        {
+          "name": "Age",
+          "title": "Age",
+          "type": "string"
+        },
+        {
+          "name": "Gender",
+          "title": "Gender",
+          "type": "string"
+        },
+        {
+          "name": "ID",
+          "title": "employee_id",
+          "type": "integer"
+        },
+        {
+          "name": "Name",
+          "title": "First_name",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  },
+  "subworkflows": [
+    {
+      "workflow": {
+        "unique_name": "definition_workflow_01Q1MUCDYZZXC2FG3DMgJxExE3EQAK3bKcX",
+        "name": "Table Flow VE",
+        "title": "Table Flow VE",
+        "type": "generic.workflow",
+        "base_type": "workflow",
+        "variables": [
+          {
+            "schema_id": "tabletype_01PG1OCZXWH1B4OwCONXwQNez1mQ2gfDTQO",
+            "properties": {
+              "value": [
+                {
+                  "column_data": {
+                    "Age": "25",
+                    "Gender": "M",
+                    "ID": 254343,
+                    "Name": "Dope"
+                  }
+                }
+              ],
+              "scope": "local",
+              "name": "ve test",
+              "type": "datatype.table",
+              "is_required": false,
+              "is_invisible": false
+            },
+            "unique_name": "variable_workflow_01Q7XYZPV7GGP6gjA27vCuZPlAtj9ZgJsdp",
+            "object_type": "variable_workflow"
+          }
+        ],
+        "properties": {
+          "atomic": {
+            "is_atomic": false
+          },
+          "delete_workflow_instance": false,
+          "display_name": "Table Flow VE",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "no_target": true
+          }
+        },
+        "object_type": "definition_workflow",
+        "actions": [
+          {
+            "unique_name": "definition_activity_01Q1MUF7BK5R34SCuS3yZkIaxG7YUtqmBAh",
+            "name": "Add Row to Table",
+            "title": "Add Row to Table",
+            "type": "core.addrowtotable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Add Row to Table",
+              "input_table": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+              "row": [
+                {
+                  "key": "FirstName",
+                  "type": "string",
+                  "value": "Charlie"
+                },
+                {
+                  "key": "LastName",
+                  "type": "string",
+                  "value": "Put"
+                },
+                {
+                  "key": "ID",
+                  "type": "integer",
+                  "value": 543635
+                },
+                {
+                  "key": "Gender",
+                  "type": "string",
+                  "value": "M"
+                },
+                {
+                  "key": "Location",
+                  "type": "string",
+                  "value": "hartford"
+                },
+                {
+                  "key": "zip",
+                  "type": "integer",
+                  "value": 78532
+                }
+              ],
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MV4C2CR9J7NcAZY8f786jPIEfZCuzwM",
+            "name": "Update Row in Table",
+            "title": "Update Row in Table",
+            "type": "core.updaterowintable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "columns": [
+                {
+                  "column_name": "ID",
+                  "column_type": "integer"
+                },
+                {
+                  "column_name": "Name",
+                  "column_type": "string"
+                },
+                {
+                  "column_name": "Gender",
+                  "column_type": "string"
+                },
+                {
+                  "column_name": "Age",
+                  "column_type": "string"
+                }
+              ],
+              "continue_on_failure": true,
+              "display_name": "Update Row in Table",
+              "input_table": "$workflow.definition_workflow_01Q1MUCDYZZXC2FG3DMgJxExE3EQAK3bKcX.local.variable_workflow_01Q7XYZPV7GGP6gjA27vCuZPlAtj9ZgJsdp$",
+              "row": [
+                {
+                  "key": "ID",
+                  "type": "integer",
+                  "value": 5779
+                },
+                {
+                  "key": "Name",
+                  "type": "string",
+                  "value": "firti"
+                },
+                {
+                  "key": "Gender",
+                  "type": "string",
+                  "value": "F"
+                },
+                {
+                  "key": "Age",
+                  "type": "string",
+                  "value": "56"
+                }
+              ],
+              "rows": {
+                "all_rows": true
+              },
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MUHQQLRBF7S1NOTrDQjWMCiceOTExjG",
+            "name": "Read Table from JSON",
+            "title": "Read Table from JSON",
+            "type": "corejava.read_table_from_json",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Read Table from JSON",
+              "input_json": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName$",
+              "jsonpath_query": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName${\"Venkata\"}",
+              "persist_output": false,
+              "populate_columns": false,
+              "skip_execution": false,
+              "table_columns": [
+                {
+                  "column_name": "First_name",
+                  "column_type": "string"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MV0ZEJOYF1tB7nFAq47XfdSqnpmXCvd",
+            "name": "Select from Table",
+            "title": "Select from Table",
+            "type": "core.selectfromtable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "columns": [
+                {
+                  "column_name": "FirstName",
+                  "column_type": "string"
+                }
+              ],
+              "continue_on_failure": true,
+              "display_name": "Select from Table",
+              "input_table": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2$",
+              "number_of_rows": {
+                "all_rows": true
+              },
+              "persist_output": false,
+              "skip_execution": false,
+              "sorting": {
+                "column_name": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName$",
+                "order": "asc",
+                "sort_by": true
+              },
+              "where_clause": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName$== \n'Dope'"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MUK31ZKNS72ktU4z5oB43OiiDTdS2P5",
+            "name": "Read Table from Text",
+            "title": "Read Table from Text",
+            "type": "core.read_table_from_text",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "delimiters": [
+                {
+                  "delimiter": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName$"
+                }
+              ],
+              "display_name": "Read Table from Text",
+              "input_text": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].FirstName$",
+              "persist_output": false,
+              "populate_columns": false,
+              "skip_execution": false,
+              "table_columns": [
+                {
+                  "column_name": "Venkata",
+                  "column_type": "string"
+                }
+              ]
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MULKZJGS11pLkG8bJ2LvLWA4eMzynLj",
+            "name": "Read Table from XML",
+            "title": "Read Table from XML",
+            "type": "corejava.read_table_from_xml",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": true,
+              "display_name": "Read Table from XML",
+              "input_xml": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].Gender$",
+              "persist_output": false,
+              "populate_columns": false,
+              "skip_execution": false,
+              "table_columns": [
+                {
+                  "column_name": "Gender",
+                  "column_type": "string"
+                }
+              ],
+              "xmlpath_query": "$global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2.global.variable_01PG1HJR4STBO4iJQ1XggZyM3HyF9DE52A2[0].Gender$"
+            },
+            "object_type": "definition_activity"
+          },
+          {
+            "unique_name": "definition_activity_01Q1MUGE89JCA2nG6MCH5FxQLONZXPvhJap",
+            "name": "Delete from Table",
+            "title": "Delete from Table",
+            "type": "core.deleterowfromtable",
+            "base_type": "activity",
+            "properties": {
+              "action_timeout": 180,
+              "continue_on_failure": false,
+              "display_name": "Delete from Table",
+              "input_table": "$workflow.definition_workflow_01Q1MUCDYZZXC2FG3DMgJxExE3EQAK3bKcX.local.variable_workflow_01Q7XYZPV7GGP6gjA27vCuZPlAtj9ZgJsdp$",
+              "rows": {
+                "all_rows": true
+              },
+              "skip_execution": false
+            },
+            "object_type": "definition_activity"
+          }
+        ],
+        "categories": [
+          "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+        ]
+      }
+    }
+  ]
+}
