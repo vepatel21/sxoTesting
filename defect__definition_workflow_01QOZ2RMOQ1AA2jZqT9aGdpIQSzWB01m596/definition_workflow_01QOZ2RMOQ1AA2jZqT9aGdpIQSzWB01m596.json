@@ -1,0 +1,58 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01QOZ2RMOQ1AA2jZqT9aGdpIQSzWB01m596",
+    "name": "commit testing defect",
+    "title": "commit testing defect",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "commit testing defect",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01QOZ2VASMXI32DUDX2nTZMZyWT2cTjP3LZ",
+        "name": "To Upper",
+        "title": "To Upper",
+        "type": "core.string2upper",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "To Upper",
+          "skip_execution": false,
+          "source": "Venkata"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "runtime_users": {
+    "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W": {
+      "unique_name": "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W",
+      "name": "Git password testing",
+      "title": "Git password testing",
+      "type": "runtime_user.git_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "Git password testing",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  }
+}
