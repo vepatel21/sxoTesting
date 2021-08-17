@@ -1,0 +1,115 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01QLLWOI550A45d9MU2IfMpkvmVYKqHhfRD",
+    "name": "PT_Python_Input/Output",
+    "title": "PT_Python_Input/Output",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "ABCDEFG",
+          "scope": "input",
+          "name": "pt_python_input1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01QLLX2ZK7VOM0KNgT3K8aZEpo5qOlUi33V",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "pt_Python_output1",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01QLLX7QTBBRP5oALD8gmKMFHBWfFeCTvZN",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "PT_Python_Input/Output",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01QLLXA3N4LQV4Brem2zMlmVptqiW1UlY5u",
+        "name": "Execute Python Script",
+        "title": "Execute Python Script",
+        "type": "python3.script",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Execute Python Script",
+          "script": "import sys\n\ninputAns = sys.argv[1]\nprint(\"Displaying the value of input variable\")\nprint(inputAns)\noutput = inputAns + \"CHANGE\"\n\n",
+          "script_arguments": [
+            "$workflow.definition_workflow_01QLLWOI550A45d9MU2IfMpkvmVYKqHhfRD.input.variable_workflow_01QLLX2ZK7VOM0KNgT3K8aZEpo5qOlUi33V$"
+          ],
+          "script_queries": [
+            {
+              "script_query": "output",
+              "script_query_name": "prp_output",
+              "script_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01QLLZ3BX8UG10RMamGvjFcblyisIJLpxRH",
+        "name": "Set Variables",
+        "title": "Set Variables",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01QLLWOI550A45d9MU2IfMpkvmVYKqHhfRD.output.variable_workflow_01QLLX7QTBBRP5oALD8gmKMFHBWfFeCTvZN$",
+              "variable_value_new": "$activity.definition_activity_01QLLXA3N4LQV4Brem2zMlmVptqiW1UlY5u.output.script_queries.prp_output$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "runtime_users": {
+    "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W": {
+      "unique_name": "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W",
+      "name": "Git password testing",
+      "title": "Git password testing",
+      "type": "runtime_user.git_password_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "Git password testing",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  }
+}
