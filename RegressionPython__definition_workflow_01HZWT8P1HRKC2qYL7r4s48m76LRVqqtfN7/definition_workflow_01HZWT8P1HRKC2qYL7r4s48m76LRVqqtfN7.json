@@ -82,7 +82,7 @@
                   "action_timeout": 180,
                   "continue_on_failure": true,
                   "display_name": "Basic Test",
-                  "script": "print(\"Action Orchestrator Workflow Use Action Orchestrator to automate an IT es by defining a workflow, then running instances of the defined workflow. The workflow defines the automation steps (activities), the logic or flow between these steps, and how to flow data from one step to the next. The engine manages the state and lifecycle of a workflow, bringing it into existence, running its steps, and finally terminating it. During and (by default) after workflow execution, the engine retains information so that operators can view the status of their running workflows. Related Topics Creating a Basic Workflow Category Action Orchestrator workflows, tasks and several other elements of the functional model can be placed into categories. Categories in Action Orchestrator work just like Microsoft Outlook categories with respect to tagging objects for grouping in the UI. Objects such as workflows can be in multiple categories. For example, a workflow can be both a network best practice and a security best practice. The Categories feature provides a way to organize your workflows based on your organizational or functional requirements. Action Orchestrator ships with predefined categories but provides the functionality for you to create your own business-specific categories. When creating a workflow, you can assign the workflow to a category. You can also add other categories to a category to create a hierarchy. Activities Activities are the steps in a workflow. They are customized to perform integration with some environment. Activities can be provided by adapters (binary components in Action Orchestrator) or by automation packs. Therefore both adapters and automation packs can contribute to a particular integration. Workflow activities provide the logic or flow aspects of the workflow. Workflow activities are exposed in the Logic tab of the workflow Editor. Related Topic Adding Logic Components to a Workflow Conditions Many workflow logic elements perform tests to control execution. Conditions implement these tests. For example, a Condition Branch can split execution to take one path if a condition exists, and another if it does not. A While Block can iterate execution while a condition exists. Conditions can also be placed on a workflow trigger, allowing control of situations in which the workflow can run. For example, a scenario might require the workflow to run during two different time ranges, which would require two triggers: one trigger with an 8am-5pm condition and a totally different trigger with a 5pm-8am condition. There are two basic types of conditions: Composite conditions A composite condition builds a compound condition from individual conditions. It allows combining conditions with AND logic, where all of the conditions must be TRUE for the composite condition to be TRUE, or OR logic, where any of the conditions can be TRUE for the composite condition to return TRUE. Compound conditions can be used in other compound conditions to produce complex logic, such as ((X AND Y) OR (A AND B)). Account Keys A account key record stores information about the user security context and passes this information to the adapters for activity execution, event monitoring, and some target operations (such as availability monitoring and discovery). Account Key instances can be shared across targets and workflows. For example, if a single set of credentials can be used to access a set of network devices, only one account key instance must be created. When it is time to change the credentials, users can go to the account keys list and edit the single instance to change the credentials. This greatly reduces the configuration load when credentials tend to change often in some environments. Account Key credentials can be used in a workflow, but no workflow can retrieve credentials. If your workflow must access credentials, use hidden string variables. The account key user concept allows the product to implement delegation. For example: An IT help desk operator comes to Action Orchestrator to run a workflow. This operator is presented with a list of workflows that Action Orchestrator role-based access control allows them to run. These workflows might include activities that require a level of security permission that the operator does not natively have. The operator can perform actions as a part of the established workflow that are not possible for them to perform manually. This concept can also be leveraged to reveal where operators make changes outside of a workflow. By examining auditing logs such as Windows logs for things being done under the operator's credentials rather than the Action Orchestrator  account key user credentials, it is possible to determine how the operator is doing things outside of workflow and determine how to close things down. So a side effect of Action Orchestrator automation is that customers might be able to tighten security in their environment. Targets Targets are instances created from a target type. For example: A terminal target allows SSH or telnet to some specific network device. A database target allows connection to specific supported databases. A workflow or activity executes an action within some environment.\")",
+                  "script": "print(\"Action Orchestrator Workflow Use Action Orchestrator to automate an IT es by defining a workflow, then running instances of the defined workflow. The workflow defines the automation steps (activities), the logic or flow between these steps, and how to flow data from one step to the next. The engine manages the state and lifecycle of a workflow, bringing it into existence, running its steps, and finally terminating it. During and (by default) after workflow execution, the engine retains information so that operators can view the status of their running workflows. Related Topics Creating a Basic Workflow Category Action Orchestrator workflows, tasks and several other elements of the functional model can be placed into categories. Categories in Action Orchestrator work just like Microsoft Outlook categories with respect to tagging objects for grouping in the UI. Objects such as workflows can be in multiple categories. For example, a workflow can be both a network best practice and a security best practice. The Categories feature provides a way to organize your workflows based on your organizational or functional requirements. Action Orchestrator ships with predefined categories but provides the functionality for you to create your own business-specific categories. When creating a workflow, you can assign the workflow to a category. You can also add other categories to a category to create a hierarchy. Activities Activities are the steps in a workflow. They are customized to perform integration with some environment. Activities can be provided by adapters (binary components in Action Orchestrator) or by automation packs. Therefore both adapters and automation packs can contribute to a particular integration. Workflow activities provide the logic or flow aspects of the workflow. Workflow activities are exposed in the Logic tab of the workflow Editor. Related Topic Adding Logic Components to a Workflow Conditions Many workflow logic elements perform tests to control execution. Conditions implement these tests. For example, a Condition Branch can split execution to take one path if a condition exists, and another if it does not. A While Block can iterate execution while a condition exists. Conditions can also be placed on a workflow trigger, allowing control of situations in which the workflow can run. For example, a scenario might require the workflow to run during two different time ranges, which would require two triggers: one trigger with an 8am-5pm condition and a totally different trigger with a 5pm-8am condition. There are two basic types of conditions: Composite conditions A composite condition builds a compound condition from individual conditions. It allows combining conditions with AND logic, where all of the conditions must be TRUE for the composite condition to be TRUE, or OR logic, where any of the conditions can be TRUE for the composite condition to return TRUE. Compound conditions can be used in other compound conditions to produce complex logic, such as ((X AND Y) OR (A AND B)). Account Keys A account key record stores information about the user security context and passes this information to the adapters for activity execution, event monitoring, and some target operations (such as availability monitoring and discovery). Account Key instances can be shared across targets and workflows. For example, if a single set of credentials can be used to access a set of network devices, only one account key instance must be created. When it is time to change the credentials, users can go to the account keys list and edit the single instance to change the credentials. This greatly reduces the configuration load when credentials tend to change often in some environments. Account Key credentials can be used in a workflow, but no workflow can retrieve credentials. If your workflow must access credentials, use hidden string variables. The account key user concept allows the product to implement delegation. For example: An IT help desk operator comes to Action Orchestrator to run a workflow. This operator is presented with a list of workflows that Action Orchestrator role-based access control allows them to run. These workflows might include activities that require a level of security permission that the operator does not natively have. The operator can perform actions as a part of the established workflow that are not possible for them to perform manually. This concept can also be leveraged to reveal where operators make changes outside of a workflow. By examining auditing logs such as Windows logs for things being done under the operator's credentials rather than the Action Orchestrator  account key user credentials, it is possible to determine how the operator is doing things outside of workflow and determine how to close things down. So a side effect of Action Orchestrator automation is that customers might be able to tighten security in their environment. Targets Targets are instances created from a target type. For example: A terminal target allows SSH or telnet to some specific network device. A database target allows connection to specific supported databases. A workflow or activity executes an action within some environment.\")\nprint(\"Venkata Patel\")",
                   "script_arguments": [
                     ""
                   ],
@@ -521,11 +521,20 @@
       }
     ],
     "categories": [
-      "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9",
+      "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd",
       "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
     ]
   },
   "categories": {
+    "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd": {
+      "unique_name": "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd",
+      "name": "Regression",
+      "title": "Regression",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    },
     "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
       "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
       "name": "CA Web Services",
@@ -534,29 +543,19 @@
       "base_type": "category",
       "category_type": "custom",
       "object_type": "category"
-    },
-    "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9": {
-      "unique_name": "category_01HI09GG68T6R3c5UZCYjlnF64hud6rjRE9",
-      "name": "Regression",
-      "title": "Regression",
-      "type": "basic.category",
-      "base_type": "category",
-      "category_type": "custom",
-      "object_type": "category"
     }
   },
   "runtime_users": {
-    "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W": {
-      "unique_name": "definition_runtime_user_01QJWNRTRNYUR0lRxL2LTtUII44iot4Tp0W",
-      "name": "Git password testing",
-      "title": "Git password testing",
-      "type": "runtime_user.git_password_credentials",
+    "definition_runtime_user_01R2NE7PUHY6C11z65TuvNK0FxGmVBCiHiI": {
+      "unique_name": "definition_runtime_user_01R2NE7PUHY6C11z65TuvNK0FxGmVBCiHiI",
+      "name": "VE_GIT",
+      "title": "VE_GIT",
+      "type": "runtime_user.git_token_credentials",
       "base_type": "runtime_user",
       "object_type": "definition_runtime_user",
       "properties": {
-        "display_name": "Git password testing",
-        "password": "*****",
-        "username": "*****"
+        "display_name": "VE_GIT",
+        "token": "*****"
       }
     }
   },
@@ -1011,6 +1010,16 @@
       "description": "all data type table all column is option",
       "columns": [
         {
+          "name": "Date",
+          "title": "Date",
+          "type": "date"
+        },
+        {
+          "name": "Decimal",
+          "title": "Decimal",
+          "type": "number"
+        },
+        {
           "name": "Integer",
           "title": "Integer",
           "type": "integer"
@@ -1024,16 +1033,6 @@
           "name": "Boolean",
           "title": "Boolean",
           "type": "boolean"
-        },
-        {
-          "name": "Date",
-          "title": "Date",
-          "type": "date"
-        },
-        {
-          "name": "Decimal",
-          "title": "Decimal",
-          "type": "number"
         }
       ],
       "base_type": "datatype",
@@ -1044,6 +1043,11 @@
       "data_type": "datatype.tabletype",
       "display_name": "Test_Customer Table",
       "columns": [
+        {
+          "name": "FirstName",
+          "title": "First Name",
+          "type": "string"
+        },
         {
           "name": "Gender",
           "title": "Gender",
@@ -1068,11 +1072,6 @@
           "name": "zip",
           "title": "zipcode",
           "type": "integer"
-        },
-        {
-          "name": "FirstName",
-          "title": "First Name",
-          "type": "string"
         }
       ],
       "base_type": "datatype",
