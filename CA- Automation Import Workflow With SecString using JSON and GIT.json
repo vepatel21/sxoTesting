@@ -1,0 +1,1274 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT",
+    "name": "CA- Automation Import Workflow With SecString using JSON and GIT",
+    "title": "CA- Automation Import Workflow With SecString using JSON and GIT",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Token Password for \"ChandraAddan\" GIT Account",
+          "type": "datatype.secure_string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MY7AUUCD6P70khPMK2HWYxZ8iWe06WBVY",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu\",\n    \"name\": \"CA- Test WF Import  SecureString\",\n    \"title\": \"CA- Test WF Import  SecureString\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.secure_string\",\n        \"properties\": {\n          \"value\": \"*****\",\n          \"scope\": \"local\",\n          \"name\": \"Secure String Local \",\n          \"type\": \"datatype.secure_string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01MY1T2CE90TL2KcprKy8RHzAt0XirnpldR\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"This Workflow Imported using Automation Workflow \\n\",\n      \"display_name\": \"CA- Test WF Import  SecureString\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0\",\n        \"name\": \"Execute Python Script\",\n        \"title\": \"Execute Python Script\",\n        \"type\": \"python3.script\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Execute Python Script\",\n          \"script\": \"print('$workflow.definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu.local.variable_workflow_01MY1T2CE90TL2KcprKy8RHzAt0XirnpldR$')\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01MY187KJ9W2935MKTwLY0eAQ9gY7CdIEcy\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01MY187MM6RPE6tiZwGy5L66lt0USdy8z6M\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Passed (Matched)\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0.output.response_body$\",\n                \"operator\": \"eqi\",\n                \"right_operand\": \"cisco\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Passed (Matched)\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01MY18VA8NQTR5G1UJbNqOAaQaxWInPykvU\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Test skip Secure String While Importing Worklfow\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_01MY187NG1OBS4p8394giCo2RC4D5c77nfK\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Failed (condition not Matched)\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0.output.response_body$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"cisco\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Failed (condition not Matched)\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01MY18XJ0Q0B121F4paLyR7t7OYP9UGLTwj\",\n                \"name\": \"Completed\",\n                \"title\": \"Completed\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Completed\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+          "scope": "local",
+          "name": "WF JSON",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MY1MK42S65N0Byg9QBT8NSPxGdtvCOA0a",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "{\n  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu\",\n    \"name\": \"CA- Test WF Import  SecureString\",\n    \"title\": \"CA- Test WF Import  SecureString\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.secure_string\",\n        \"properties\": {\n          \"value\": \"cisco\",\n          \"scope\": \"local\",\n          \"name\": \"Secure String Local \",\n          \"type\": \"datatype.secure_string\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01MY1T2CE90TL2KcprKy8RHzAt0XirnpldR\",\n        \"object_type\": \"variable_workflow\",\n        \"created_on\": \"0001-01-01T00:00:00Z\",\n        \"updated_on\": \"0001-01-01T00:00:00Z\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"description\": \"This Workflow Imported using Automation Workflow \\n\",\n      \"display_name\": \"CA- Test WF Import  SecureString\",\n      \"runtime_user\": {\n        \"target_default\": true\n      },\n      \"target\": {\n        \"no_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0\",\n        \"name\": \"Execute Python Script\",\n        \"title\": \"Execute Python Script\",\n        \"type\": \"python3.script\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"action_timeout\": 180,\n          \"continue_on_failure\": false,\n          \"display_name\": \"Execute Python Script\",\n          \"script\": \"print('$workflow.definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu.local.variable_workflow_01MY1T2CE90TL2KcprKy8RHzAt0XirnpldR$')\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\"\n      },\n      {\n        \"unique_name\": \"definition_activity_01MY187KJ9W2935MKTwLY0eAQ9gY7CdIEcy\",\n        \"name\": \"Condition Block\",\n        \"title\": \"Condition Block\",\n        \"type\": \"logic.if_else\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"Condition Block\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01MY187MM6RPE6tiZwGy5L66lt0USdy8z6M\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Passed (Matched)\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0.output.response_body$\",\n                \"operator\": \"eqi\",\n                \"right_operand\": \"cisco\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Passed (Matched)\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01MY18VA8NQTR5G1UJbNqOAaQaxWInPykvU\",\n                \"name\": \"To Upper\",\n                \"title\": \"To Upper\",\n                \"type\": \"core.string2upper\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"To Upper\",\n                  \"skip_execution\": false,\n                  \"source\": \"Test skip Secure String While Importing Worklfow\"\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          },\n          {\n            \"unique_name\": \"definition_activity_01MY187NG1OBS4p8394giCo2RC4D5c77nfK\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Failed (condition not Matched)\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$activity.definition_activity_01MY17VJ3D1B37V3wL1UmH42mOfoc949XZ0.output.response_body$\",\n                \"operator\": \"ne\",\n                \"right_operand\": \"cisco\"\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Failed (condition not Matched)\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01MY18XJ0Q0B121F4paLyR7t7OYP9UGLTwj\",\n                \"name\": \"Completed\",\n                \"title\": \"Completed\",\n                \"type\": \"logic.completed\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"completion_type\": \"failed-completed\",\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Completed\",\n                  \"skip_execution\": false\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  }\n}",
+          "scope": "local",
+          "name": "WF With secure string in Plain text",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MY1Y6YJMUVG7kq41CvoUGIyW8gsqHd8rw",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Authorization",
+          "scope": "local",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "Importing Workflow  with Secure String using JSON and GIt Target\n1. Importing Workflow but UI asks the user to enter the secure string\n2. Next step in payload providing the  secure string variable Then Importing \n3. Once WF Got Imported successfully, Verify the import status\n4. Validate and executes the workflow\n5. Once execution completes, will verify the instance status (Success/Failed)\n6. Then Deletes the WF Instance\n7. Finally will delete The workflow\n8. If Workflow Imported  using Git, will delete the  account key and Target\n",
+      "display_name": "CA- Automation Import Workflow With SecString using JSON and GIT",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01MY6AMKC9LUW6sd5pmYlvj15HNAPVDdiPT",
+        "name": "Parallel Block",
+        "title": "Parallel Block",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Parallel Block",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01MY6AMMSZ1KK36Yj5yXvlbaiIL3va6sapU",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch 1",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": false,
+              "display_name": "Parallel Branch 1",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MY3NCMNQ1GN1CZN5OPv2VL3C25erP9GgT",
+                "name": "Group",
+                "title": "Import Worklfow with SecureSting Using JSON",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Import Worklfow with SecureSting Using JSON",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01MY765NH80ZP49OmcrAe88IxLY237yizec",
+                    "name": "Group",
+                    "title": "Import Using JSON",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": false,
+                      "display_name": "Import Using JSON",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01MY7164TKJ5I3Amcvb5j5P7rbrwrk1cqlN",
+                        "name": "Group",
+                        "title": "Import Wokrlfow and Verify Import Status",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": false,
+                          "display_name": "Import Wokrlfow and Verify Import Status",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY4REI8F1F51J7Q2V18JNwtEHkyF3cbzs",
+                            "name": "HTTP Request",
+                            "title": "Import  Workflow using JSON (Import will fail -Expected)",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1MK42S65N0Byg9QBT8NSPxGdtvCOA0a$",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Import  Workflow using JSON (Import will fail -Expected)",
+                              "method": "POST",
+                              "relative_url": "be-importexport/api/v1/workflows/import?create_new=true&overwrite=false&workflow_unique_name=definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY1X8CDLRYU4XvUHJAUB30vvh4eZ8KCMc",
+                            "name": "HTTP Request",
+                            "title": "Import -  Provide Securestring while import",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1Y6YJMUVG7kq41CvoUGIyW8gsqHd8rw$",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Import -  Provide Securestring while import",
+                              "method": "POST",
+                              "relative_url": "be-importexport/api/v1/workflows/import?create_new=true&overwrite=false&workflow_unique_name=definition_workflow_01MRX8KP96UX50yAxFWZj3d7vlgyZheYFyu",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY33I4JHW166F3NI6WgroN5Xqg2FLlxe9",
+                            "name": "JSONPath Query",
+                            "title": "Extract Workflow ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extract Workflow ID",
+                              "input_json": "$activity.definition_activity_01MY1X8CDLRYU4XvUHJAUB30vvh4eZ8KCMc.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "Wokrlfow ID",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY3229P0T3K3SSyDYeQDqHqCkCenONwzH",
+                            "name": "Sleep",
+                            "title": "Sleep 15  Seconds to import workflow",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep 15  Seconds to import workflow",
+                              "skip_execution": false,
+                              "sleep_interval": 15
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY34X01X0TO29ZewdkYuEgyt6Li12pJ9a",
+                            "name": "HTTP Request",
+                            "title": "GET WF To verify import Status",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "GET WF To verify import Status",
+                              "method": "GET",
+                              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY33I4JHW166F3NI6WgroN5Xqg2FLlxe9.output.jsonpath_queries.Wokrlfow ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY360CRJXMC5HGJdUlOqXpNQxfK24SjDD",
+                            "name": "JSONPath Query",
+                            "title": "Extracting imported WF Status",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extracting imported WF Status",
+                              "input_json": "$activity.definition_activity_01MY34X01X0TO29ZewdkYuEgyt6Li12pJ9a.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.status.state",
+                                  "jsonpath_query_name": "WF Import Status",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01MY3NV7WSGNR1YogPKsBM3Bn0p89DKJzsm",
+                        "name": "Group",
+                        "title": "Validate  and Execute Workflow",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Validate  and Execute Workflow",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY36MJPX3ID6XekePRjFxrtgteFfbu1Am",
+                            "name": "HTTP Request",
+                            "title": "Validate Workflow",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Validate Workflow",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY33I4JHW166F3NI6WgroN5Xqg2FLlxe9.output.jsonpath_queries.Wokrlfow ID$/validate",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY37KMFZFDS3Z88gn04i09eY5ZlzIl3wE",
+                            "name": "HTTP Request",
+                            "title": "Execute Workflow",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Execute Workflow",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01MY33I4JHW166F3NI6WgroN5Xqg2FLlxe9.output.jsonpath_queries.Wokrlfow ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY38IHKE8T44e9lXymsPbUeGDi9zENuiY",
+                            "name": "JSONPath Query",
+                            "title": "Extract instance ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extract instance ID",
+                              "input_json": "$activity.definition_activity_01MY37KMFZFDS3Z88gn04i09eY5ZlzIl3wE.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "Instance ID",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY38WLDGWL40R4MokpMdQkkzKG7m4c7Ai",
+                            "name": "Sleep",
+                            "title": "Sleep 15 Seconds",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep 15 Seconds",
+                              "skip_execution": false,
+                              "sleep_interval": 15
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY395F79CTE2NIn6jnMlXMa8hEQofiZ6K",
+                            "name": "HTTP Request",
+                            "title": "Get Instance Info in detail",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Get Instance Info in detail",
+                              "method": "GET",
+                              "relative_url": "be-console/api/v1/instances/$activity.definition_activity_01MY38IHKE8T44e9lXymsPbUeGDi9zENuiY.output.jsonpath_queries.Instance ID$?detailed=true",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01MY3OJUNVHFX3khcNO8qY4qYv66ZlNpsMO",
+                        "name": "Group",
+                        "title": "Verifying Instance status and deleteing Instance and  Workflow",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Verifying Instance status and deleteing Instance and  Workflow",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY3A4N5JN4U38bFERcIxVQyHx6UrQ2Gqo",
+                            "name": "JSONPath Query",
+                            "title": "Extracting Instacne status ",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extracting Instacne status ",
+                              "input_json": "$activity.definition_activity_01MY395F79CTE2NIn6jnMlXMa8hEQofiZ6K.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.status.state",
+                                  "jsonpath_query_name": "WF Instance status",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY3B21TEQNM3BXHUsg7HgGjDlKhV1B5CB",
+                            "name": "HTTP Request",
+                            "title": "Delete WF Instance",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Delete WF Instance",
+                              "method": "DELETE",
+                              "relative_url": "be-console/api/v1/instances/$activity.definition_activity_01MY38IHKE8T44e9lXymsPbUeGDi9zENuiY.output.jsonpath_queries.Instance ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY3BVHQJ7LH3YtqibeKSDgwv3SE710LzI",
+                            "name": "Sleep",
+                            "title": "Sleep 10  Seconds to delete Instance",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep 10  Seconds to delete Instance",
+                              "skip_execution": false,
+                              "sleep_interval": 10
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY3CICMTRKY7ADHr04iqCr47d6gfX3kBO",
+                            "name": "HTTP Request",
+                            "title": "Delete Workflow",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Delete Workflow",
+                              "method": "DELETE",
+                              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY33I4JHW166F3NI6WgroN5Xqg2FLlxe9.output.jsonpath_queries.Wokrlfow ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01MY6AMNJCGQ80M7iF03nCozY1FxJPcLevr",
+            "name": "Parallel Branch",
+            "title": "Parallel Branch 2",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "Parallel Branch 2",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MY5F64W6GRA45vcqPCxN4gpWlHzn9UAT5",
+                "name": "Group",
+                "title": "Import Worklflow with Secure Strings  Using GIT",
+                "type": "logic.group",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Import Worklflow with Secure Strings  Using GIT",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity",
+                "actions": [
+                  {
+                    "unique_name": "definition_activity_01MY6AVCAN99J0Y3GsslhKDPSGtRAgpWGko",
+                    "name": "Group",
+                    "title": "Import Using GIT ",
+                    "type": "logic.group",
+                    "base_type": "activity",
+                    "properties": {
+                      "continue_on_failure": true,
+                      "display_name": "Import Using GIT ",
+                      "skip_execution": false
+                    },
+                    "object_type": "definition_activity",
+                    "actions": [
+                      {
+                        "unique_name": "definition_activity_01MY6TP62L2XX33L6N0FF0lRUPLK5ZkVHF5",
+                        "name": "Group",
+                        "title": "Create GIT Key and Target",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Create GIT Key and Target",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY6T2288JUE3AOZ74MDhTG8rBAv3TIV3L",
+                            "name": "HTTP Request",
+                            "title": "Create Git Account key",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "{\n  \"type\": \"runtime_user.git_password_credentials\",\n  \"base_type\": \"runtime_user\",\n  \"name\": \"CA GIT KEY\",\n  \"title\": \"CA GIT KEY\",\n  \"properties\": {\n    \"display_name\": \"CA GIT KEY\",\n    \"username\": \"ChandraAddan\",\n    \"password\": \"$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY7AUUCD6P70khPMK2HWYxZ8iWe06WBVY$\"\n  }\n}",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Create Git Account key",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1/runtime_users",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6WU92CMFU4KoX4TEw4xzsmuqdsFvWNz",
+                            "name": "JSONPath Query",
+                            "title": "Extract GIT Account Key ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": false,
+                              "display_name": "Extract GIT Account Key ID",
+                              "input_json": "$activity.definition_activity_01MY6T2288JUE3AOZ74MDhTG8rBAv3TIV3L.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "GIT Accountkey ID",
+                                  "jsonpath_query_type": "string"
+                                },
+                                {
+                                  "jsonpath_query": "$.status.state",
+                                  "jsonpath_query_name": "Accountkey Status",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6XKR6MWKB3Y5HloW8BAniO250v6Xkgg",
+                            "name": "HTTP Request",
+                            "title": "Create GIT Target",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "{\n  \"name\": \"CA GIT test Import with securestring\",\n  \"title\": \"CA GIT test Import with SecureString\",\n  \"properties\": {\n    \"no_runtime_user\": false,\n    \"repo_type\": \"github\",\n    \"branch\": \"master\",\n    \"display_name\": \"CA GIT test Import/Export\",\n    \"default_runtime_user_id\": \"$activity.definition_activity_01MY6WU92CMFU4KoX4TEw4xzsmuqdsFvWNz.output.jsonpath_queries.GIT Accountkey ID$\",\n    \"protocol\": \"https\",\n    \"repo\": \"api.github.com/repos/ChandraAddan/Test\"\n  },\n  \"type\": \"git.repository\",\n  \"base_type\": \"target\"\n}",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Create GIT Target",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1/targets",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6ZK2I5E6W6huqlOZFcvgC79n6kW0PtZ",
+                            "name": "JSONPath Query",
+                            "title": "Extract Git Target ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extract Git Target ID",
+                              "input_json": "$activity.definition_activity_01MY6XKR6MWKB3Y5HloW8BAniO250v6Xkgg.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "GIT Target ID",
+                                  "jsonpath_query_type": "string"
+                                },
+                                {
+                                  "jsonpath_query": "$.status.state",
+                                  "jsonpath_query_name": "Git Target Status",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01MY750DKCO5X5BWlg5rgI5cPzPj79v2dcs",
+                        "name": "Group",
+                        "title": "Import Wokrlfow using GIT  and Verify Import Status",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Import Wokrlfow using GIT  and Verify Import Status",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY6AVG1L4171QYdmn6mdqD6IMgNePv0Br",
+                            "name": "HTTP Request",
+                            "title": "Import  Workflow using GIT(Import will fail -Expected)",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "{\n  \"commit_hash\": \"f2557f21b5cfd870467664593d59908e3498b44d\",\n  \"target_id\": \"01JKS21U9BO781uCpDun8YnoHqTfKGBDeVF\",\n  \"runtime_users\": [],\n  \"runtime_users_skip_list\": [],\n  \"variables\": [],\n  \"file_name\": \"ImportWF-SecureString-Using-GIT\"\n}",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Import  Workflow using GIT(Import will fail -Expected)",
+                              "method": "POST",
+                              "relative_url": "be-importexport/api/v1/workflows/import?create_new=true&from=git&overwrite=false&workflow_unique_name=definition_workflow_01MY2E5Q2ZN572ulak3Z9UDSweMVmx3Gbmn",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6AVHJS32P4oYdah99kZLTrjFBcpTj79",
+                            "name": "HTTP Request",
+                            "title": "Import -  Provide Securestring while import",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "body": "{\n  \"commit_hash\": \"f2557f21b5cfd870467664593d59908e3498b44d\",\n  \"target_id\": \"01JKS063IH6526eCgdS6e2p3F7VHZt4ZrJ7\",\n  \"runtime_users\": [],\n  \"runtime_users_skip_list\": [],\n  \"variables\": [\n    {\n      \"schema_id\": \"datatype.secure_string\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"name\": \"Secure String Local \",\n        \"type\": \"datatype.secure_string\",\n        \"is_required\": false,\n        \"is_invisible\": false,\n        \"value\": \"cisco\"\n      },\n      \"created_on\": \"0001-01-01T00:00:00Z\",\n      \"updated_on\": \"0001-01-01T00:00:00Z\",\n      \"object_type\": \"variable_workflow\",\n      \"unique_name\": \"variable_workflow_01MY2E5PUEYUE3X4Ke2Ge76ZSZ7dtPn8ujn\"\n    }\n  ],\n  \"file_name\": \"ImportWF-SecureString-Using-GIT\"\n}",
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Import -  Provide Securestring while import",
+                              "method": "POST",
+                              "relative_url": "be-importexport/api/v1/workflows/import?create_new=true&from=git&overwrite=false&workflow_unique_name=definition_workflow_01MY2E5Q2ZN572ulak3Z9UDSweMVmx3Gbmn",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6AVJ2VC3K6JbNIxPzugi30M8GRQnGtn",
+                            "name": "JSONPath Query",
+                            "title": "Extract Workflow ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extract Workflow ID",
+                              "input_json": "$activity.definition_activity_01MY6AVHJS32P4oYdah99kZLTrjFBcpTj79.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "Wokrlfow ID",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6AVKLDV2X3MOH6wO4z5iFy3omzqJdrw",
+                            "name": "Sleep",
+                            "title": "Sleep 15  Seconds to import workflow",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep 15  Seconds to import workflow",
+                              "skip_execution": false,
+                              "sleep_interval": 15
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6AVLZGXM16ovgA9TJOLsqGhVkVAVdaa",
+                            "name": "HTTP Request",
+                            "title": "GET WF To verify import Status",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "GET WF To verify import Status",
+                              "method": "GET",
+                              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY6AVJ2VC3K6JbNIxPzugi30M8GRQnGtn.output.jsonpath_queries.Wokrlfow ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6AVNCXAUJ5sHCnNCqVHzwi0As2y6lRu",
+                            "name": "JSONPath Query",
+                            "title": "Extracting imported WF Status",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extracting imported WF Status",
+                              "input_json": "$activity.definition_activity_01MY6AVLZGXM16ovgA9TJOLsqGhVkVAVdaa.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$.status.state",
+                                  "jsonpath_query_name": "WF Import Status",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          }
+                        ]
+                      },
+                      {
+                        "unique_name": "definition_activity_01MY6BBAQG5VQ5QWM4x22HTFbTsslNErpF6",
+                        "name": "Group",
+                        "title": "Validate  and Execute Workflow",
+                        "type": "logic.group",
+                        "base_type": "activity",
+                        "properties": {
+                          "continue_on_failure": true,
+                          "display_name": "Validate  and Execute Workflow",
+                          "skip_execution": false
+                        },
+                        "object_type": "definition_activity",
+                        "actions": [
+                          {
+                            "unique_name": "definition_activity_01MY6BBDUNKPK1wNog3GVyAK37D3hRE01ib",
+                            "name": "HTTP Request",
+                            "title": "Validate Workflow",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Validate Workflow",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY6AVJ2VC3K6JbNIxPzugi30M8GRQnGtn.output.jsonpath_queries.Wokrlfow ID$/validate",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6BBF0F50Y71EAy6h9XAOCAL2ZMNQZLE",
+                            "name": "HTTP Request",
+                            "title": "Execute Workflow",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Execute Workflow",
+                              "method": "POST",
+                              "relative_url": "be-console/api/v1.1/workflows/ui/start?workflow_id=$activity.definition_activity_01MY6AVJ2VC3K6JbNIxPzugi30M8GRQnGtn.output.jsonpath_queries.Wokrlfow ID$",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6BBG7Z5YZ1jDcERC1YTu3lswbvQCsgG",
+                            "name": "JSONPath Query",
+                            "title": "Extract instance ID",
+                            "type": "corejava.jsonpathquery",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "continue_on_failure": true,
+                              "display_name": "Extract instance ID",
+                              "input_json": "$activity.definition_activity_01MY6BBF0F50Y71EAy6h9XAOCAL2ZMNQZLE.output.response_body$",
+                              "jsonpath_queries": [
+                                {
+                                  "jsonpath_query": "$..id",
+                                  "jsonpath_query_name": "Instance ID",
+                                  "jsonpath_query_type": "string"
+                                }
+                              ],
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6BBHGOXEL2RHgY9EmIzsOEdtwYkdD3D",
+                            "name": "Sleep",
+                            "title": "Sleep 15 Seconds",
+                            "type": "core.sleep",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Sleep 15 Seconds",
+                              "skip_execution": false,
+                              "sleep_interval": 15
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6BBIMWSS23nwdAxfAhrsaVoVv7kNgFk",
+                            "name": "HTTP Request",
+                            "title": "Get Instance Info in detail",
+                            "type": "web-service.http_request",
+                            "base_type": "activity",
+                            "properties": {
+                              "action_timeout": 180,
+                              "allow_auto_redirect": true,
+                              "content_type": "application/json",
+                              "continue_on_error_status_code": false,
+                              "continue_on_failure": true,
+                              "custom_headers": [
+                                {
+                                  "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                  "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                }
+                              ],
+                              "display_name": "Get Instance Info in detail",
+                              "method": "GET",
+                              "relative_url": "be-console/api/v1/instances/$activity.definition_activity_01MY6BBG7Z5YZ1jDcERC1YTu3lswbvQCsgG.output.jsonpath_queries.Instance ID$?detailed=true",
+                              "runtime_user": {
+                                "target_default": true
+                              },
+                              "skip_execution": false,
+                              "target": {
+                                "use_workflow_target": true
+                              }
+                            },
+                            "object_type": "definition_activity"
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY6BIUI8EAT2mDruUaJ6MQYMnOGxGBXbc",
+                            "name": "Group",
+                            "title": "Verifying Instance status and deleteing Instance and  Workflow",
+                            "type": "logic.group",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Verifying Instance status and deleteing Instance and  Workflow",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01MY6BIX61WTI39tqUGYHFvJZVxHy4TGNue",
+                                "name": "JSONPath Query",
+                                "title": "Extracting Instacne status ",
+                                "type": "corejava.jsonpathquery",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "continue_on_failure": true,
+                                  "display_name": "Extracting Instacne status ",
+                                  "input_json": "$activity.definition_activity_01MY6BBIMWSS23nwdAxfAhrsaVoVv7kNgFk.output.response_body$",
+                                  "jsonpath_queries": [
+                                    {
+                                      "jsonpath_query": "$.status.state",
+                                      "jsonpath_query_name": "WF Instance status",
+                                      "jsonpath_query_type": "string"
+                                    }
+                                  ],
+                                  "skip_execution": false
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01MY6BIYGNBD30DtAvODJRDcBe0NggJR8Mh",
+                                "name": "HTTP Request",
+                                "title": "Delete WF Instance",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": true,
+                                  "custom_headers": [
+                                    {
+                                      "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                      "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                    }
+                                  ],
+                                  "display_name": "Delete WF Instance",
+                                  "method": "DELETE",
+                                  "relative_url": "be-console/api/v1/instances/$activity.definition_activity_01MY6BBG7Z5YZ1jDcERC1YTu3lswbvQCsgG.output.jsonpath_queries.Instance ID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01MY6BIZSO4BX1ptifmF3JMF2H6bGN7A4V2",
+                                "name": "Sleep",
+                                "title": "Sleep 10  Seconds to delete Instance",
+                                "type": "core.sleep",
+                                "base_type": "activity",
+                                "properties": {
+                                  "continue_on_failure": true,
+                                  "display_name": "Sleep 10  Seconds to delete Instance",
+                                  "skip_execution": false,
+                                  "sleep_interval": 10
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01MY6BJ143HOT7ks52fG5J0nMuL5rIcjeNI",
+                                "name": "HTTP Request",
+                                "title": "Delete Workflow",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": true,
+                                  "custom_headers": [
+                                    {
+                                      "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                      "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                    }
+                                  ],
+                                  "display_name": "Delete Workflow",
+                                  "method": "DELETE",
+                                  "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MY6AVJ2VC3K6JbNIxPzugi30M8GRQnGtn.output.jsonpath_queries.Wokrlfow ID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          },
+                          {
+                            "unique_name": "definition_activity_01MY77ACU01911SPmbci3kXfAdaC4oQGtjM",
+                            "name": "Group",
+                            "title": "Delete GIT Accountkey and Target",
+                            "type": "logic.group",
+                            "base_type": "activity",
+                            "properties": {
+                              "continue_on_failure": true,
+                              "display_name": "Delete GIT Accountkey and Target",
+                              "skip_execution": false
+                            },
+                            "object_type": "definition_activity",
+                            "actions": [
+                              {
+                                "unique_name": "definition_activity_01MY77NUUYCE0380aOHYyyPsovngKtWyCYx",
+                                "name": "HTTP Request",
+                                "title": "Delete GIT Target",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": true,
+                                  "custom_headers": [
+                                    {
+                                      "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                      "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                    }
+                                  ],
+                                  "display_name": "Delete GIT Target",
+                                  "method": "DELETE",
+                                  "relative_url": "be-console/api/v1/targets/$activity.definition_activity_01MY6ZK2I5E6W6huqlOZFcvgC79n6kW0PtZ.output.jsonpath_queries.GIT Target ID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              },
+                              {
+                                "unique_name": "definition_activity_01MY792HFRR2P6AZU2CEMaJRYuSF68NoGi1",
+                                "name": "HTTP Request",
+                                "title": "Delete GIT Accountkey ",
+                                "type": "web-service.http_request",
+                                "base_type": "activity",
+                                "properties": {
+                                  "action_timeout": 180,
+                                  "allow_auto_redirect": true,
+                                  "content_type": "application/json",
+                                  "continue_on_error_status_code": false,
+                                  "continue_on_failure": true,
+                                  "custom_headers": [
+                                    {
+                                      "name": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.local.variable_workflow_01MY1FO1MW59S1nS9doYh440sy9Icd8vWEL$",
+                                      "value": "$workflow.definition_workflow_01MY1EYW0SEHG5CWoDiXxrIFqZT7iVLOcYT.input.variable_workflow_01MY1G17JKEP90bAydeSbYhe8qdd3uSIQDG$"
+                                    }
+                                  ],
+                                  "display_name": "Delete GIT Accountkey ",
+                                  "method": "DELETE",
+                                  "relative_url": "be-console/api/v1/runtime_users/$activity.definition_activity_01MY6WU92CMFU4KoX4TEw4xzsmuqdsFvWNz.output.jsonpath_queries.GIT Accountkey ID$",
+                                  "runtime_user": {
+                                    "target_default": true
+                                  },
+                                  "skip_execution": false,
+                                  "target": {
+                                    "use_workflow_target": true
+                                  }
+                                },
+                                "object_type": "definition_activity"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+    ]
+  },
+  "categories": {
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
