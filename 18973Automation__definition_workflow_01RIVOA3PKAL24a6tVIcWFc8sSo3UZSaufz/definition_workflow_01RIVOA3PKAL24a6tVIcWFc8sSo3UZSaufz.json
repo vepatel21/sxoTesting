@@ -1,0 +1,556 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz",
+    "name": "Defect 18973 Automation",
+    "title": "Defect 18973 Automation",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer",
+          "scope": "input",
+          "name": "Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Authorization",
+          "scope": "local",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Defect 18973 Automation",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01RIXJEBR6G3O5MJ4NyMOammcIjvN0wPqps",
+        "name": "HTTP Request",
+        "title": "Create WF",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"name\":\"Validation failure Automation\",\n  \"title\":\"Validation failure Automation\",\n  \"type\":\"generic.workflow\",\n  \"base_type\":\"workflow\",\n  \"properties\": {\n    \"display_name\": \"Validation failure Automation\",\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"owner\": \"system\"\n  }\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create WF",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/workflows",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK",
+        "name": "JSONPath Query",
+        "title": "Extracting WF ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Extracting WF ID",
+          "input_json": "$activity.definition_activity_01RIXJEBR6G3O5MJ4NyMOammcIjvN0wPqps.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "WF Extract",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RKMQDXNA3YP1pR514ofjoYIX6dNlxk9Og",
+        "name": "HTTP Request",
+        "title": "Get Variable Schemas",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Get Variable Schemas",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/schemas?schema_type=view\u0026base_type=datatype\u0026variable_type=true",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde",
+        "name": "JSONPath Query",
+        "title": "Extract variable types",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Extract variable types",
+          "input_json": "$activity.definition_activity_01RKMQDXNA3YP1pR514ofjoYIX6dNlxk9Og.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$.[?(@.type== 'datatype.secure_string')].schema_id",
+              "jsonpath_query_name": "Secure String Schema id",
+              "jsonpath_query_type": "secure_string"
+            },
+            {
+              "jsonpath_query": "$.[?(@.type== 'datatype.string')].schema_id",
+              "jsonpath_query_name": "String schema id",
+              "jsonpath_query_type": "string",
+              "zdate_type_format": ""
+            },
+            {
+              "jsonpath_query": "$.[?(@.type== 'datatype.integer')].schema_id",
+              "jsonpath_query_name": "Integer schema id",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.[?(@.type== 'datatype.boolean')].schema_id",
+              "jsonpath_query_name": "Boolean Schema id",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.[?(@.type== 'datatype.date')].schema_id",
+              "jsonpath_query_name": "Date schema id",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RMMDW3FXMG25VXn8cZTfg4FPGQDVpBWoQ",
+        "name": "HTTP Request",
+        "title": "Create Secure String",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Test Defect 18973\",\n  \"title\": \"Test Defect 18973\",\n  \"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Secure String Schema id$\",\n      \"title\": \"local Sec str\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"local Sec str\",\n        \"value\": \"\"\n      }\n    }\n  ]\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create Secure String",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RNX6LLR0U6G4N62JJPCS09NikGqw6jdR5",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 2
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RMME4WCKXMB106TtGMQNhZZ880fiWFm9J",
+        "name": "HTTP Request",
+        "title": "Create String",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Test Defect 18973\",\n  \"title\": \"Test Defect 18973\",\n  \"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.String schema id$\",\n      \"title\": \"local Sec str\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"is_required\": false,\n        \"name\": \"local Sec str\",\n        \"value\": \"Venkata\"\n      }\n    }\n  ]\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create String",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RNX6HUGX5G37WGIrc28CYnyaBlPSTVdQL",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 2
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RMME9LZPDF67d8ZliiPEbUn3xSyWHvQgA",
+        "name": "HTTP Request",
+        "title": "Create Boolean",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n   \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Test Defect 18973\",\n  \"title\": \"Test Defect 18973\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    }\n  },\n  \"categories\": [\n    \"01F3GIW31CLG03moxon8cIsQ4ag8Wsy6gF3\"\n  ],\n  \"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Boolean Schema id$\",\n      \"title\": \"booly\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"value\": false,\n        \"name\": \"booly\"\n      }\n    }\n  ]\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create Boolean",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RMMEKSS2ZQC0ayGviYUr60LwjM6KjnfB8",
+        "name": "HTTP Request",
+        "title": "Create Integer",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n   \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Test Defect 18973\",\n  \"title\": \"Test Defect 18973\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    }\n  },\n  \"categories\": [\n    \"01F3GIW31CLG03moxon8cIsQ4ag8Wsy6gF3\"\n  ],\n  \"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Integer schema id$\",\n      \"title\": \"booly\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"value\": 3,\n        \"name\": \"Integer val\"\n      }\n    }\n  ]\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create Integer",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RMMELU35QNH7QVJ64iJsTWqXHx2IOiiIB",
+        "name": "HTTP Request",
+        "title": "Create Date Time",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n  \"type\": \"generic.workflow\",\n  \"base_type\": \"workflow\",\n  \"name\": \"Unnamed\",\n  \"title\": \"Unnamed\",\n  \"valid\": true,\n  \"properties\": {\n    \"atomic\": {\n      \"is_atomic\": false\n    },\n    \"delete_workflow_instance\": false,\n    \"runtime_user\": {\n      \"target_default\": true\n    },\n    \"target\": {\n      \"no_target\": true\n    },\n    \"display_name\": \"Unnamed\"\n  },\n  \"categories\": [\n    \"01F3GIW31CLG03moxon8cIsQ4ag8Wsy6gF3\"\n  ],\n  \"variables\": [\n    {\n      \"schema_id\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Date schema id$\",\n      \"title\": \"daty\",\n      \"properties\": {\n        \"scope\": \"local\",\n        \"value\": \"0001-01-01T00:00:00+00:00\",\n        \"name\": \"daty\"\n      }\n    }\n  ]\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Create Date Time",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RNGL2TVL8HO30GFAYts7rCsHP2BuWFtX5",
+        "name": "HTTP Request",
+        "title": "Add Upper Action",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"previous_action\": {\n    \"id\": \"$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\"\n  },\n  \"action\": {\n    \"type\": \"core.string2upper\",\n    \"base_type\": \"activity\",\n    \"name\": \"To Upper\",\n    \"properties\": {\n      \"continue_on_failure\": false,\n      \"skip_execution\": false,\n      \"display_name\": \"To Upper\",\n      \"source\": \"automation\"\n  },\n    \"title\": \"To Upper\"\n  }\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Add Upper Action",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$/actions",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RO9TVDHSNFI4DdpmtY78uBIvxjVeG3oiU",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 8
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RO8CW3VJC9S2QXf9rVmTzCGNrH0m9uAvx",
+        "name": "HTTP Request",
+        "title": "Add While Loop",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"01RNZIBV5FULX0GyTQozigFXDxUut1EHl4Y\",\n  \"title\": \"Condition Branch\",\n  \"properties\": {\n    \"condition\": {\n      \"left_operand\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Integer schema id$\",\n      \"operator\": \"eq\",\n      \"right_operand\": \"\"\n    },\n    \"continue_on_failure\": false,\n    \"display_name\": \"Condition Branch\",\n    \"skip_execution\": false\n  }\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Add While Loop",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RO9T6DR2GF04xVEGO9SRj6sAlsxGnChZy",
+        "name": "HTTP Request",
+        "title": "Skip Condition Execution",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"id\": \"01RNZIBV5FULX0GyTQozigFXDxUut1EHl4Y\",\n  \"title\": \"Condition Branch\",\n  \"properties\": {\n    \"condition\": {\n      \"left_operand\": \"$activity.definition_activity_01RKNDOGLFWAC67PPwryG111corLhEwkZde.output.jsonpath_queries.Integer schema id$\",\n      \"operator\": \"eq\",\n      \"right_operand\": \"\"\n    },\n    \"continue_on_failure\": false,\n    \"display_name\": \"Condition Branch\",\n    \"skip_execution\": true\n  }\n}",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Skip Condition Execution",
+          "method": "PUT",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RO9VH0BWCQ63kc0stWYXndqn8TO1NokL0",
+        "name": "HTTP Request",
+        "title": "Validate WF",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Validate WF",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$/validate",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01RO8HVFRMUW56GCELDrL7LOIasPODF3PvX",
+        "name": "HTTP Request",
+        "title": "Delete WF",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.local.variable_workflow_01RIXL4AUXE9U2ZShy2bdfZyCWgQZDacbB6$",
+              "value": "$workflow.definition_workflow_01RIVOA3PKAL24a6tVIcWFc8sSo3UZSaufz.input.variable_workflow_01RIXLNFT1CVU1wuRBfrHQHx2KE2Vgolohz$"
+            }
+          ],
+          "display_name": "Delete WF",
+          "method": "DELETE",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01RKITUERRTZS3zegFhuA0TfFCEIOXpODEK.output.jsonpath_queries.WF Extract$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01REPAU2D1V7206nK0VP54GUs0Mp7mw6C3J"
+    ]
+  },
+  "categories": {
+    "category_01REPAU2D1V7206nK0VP54GUs0Mp7mw6C3J": {
+      "unique_name": "category_01REPAU2D1V7206nK0VP54GUs0Mp7mw6C3J",
+      "name": "VE Web Services",
+      "title": "VE Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
