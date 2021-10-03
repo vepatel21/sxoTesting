@@ -1,0 +1,176 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01KZ4D2Y6SS167XCNSb2VEU2ZpukYtYMHyF",
+    "name": "TestRail Testcase T1099009",
+    "title": "TestRail Testcase T1099009",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "TestRail Testcase T1099009",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01KZ4DKUAFMZ66I9o5mDmxSnbMpvXYcGlHL",
+        "name": "Read Table from JSON",
+        "title": "Read Table from JSON",
+        "type": "corejava.read_table_from_json",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Read Table from JSON",
+          "input_json": "{\n  \"firstName\": \"John\",\n  \"lastName\" : \"doe\",\n  \"age\"      : 26,\n  \"address\"  : {\n    \"streetAddress\": \"naist street\",\n    \"city\"         : \"Nara\",\n    \"postalCode\"   : \"630-0192\"\n  },\n  \"phoneNumbers\": [\n    {\n      \"type\"  : \"iPhone\",\n      \"number\": \"0123-4567-8888\"\n    },\n    {\n      \"type\"  : \"home\",\n      \"number\": \"0123-4567-8910\"\n    }\n  ]\n}",
+          "jsonpath_query": "$.phoneNumbers",
+          "persist_output": true,
+          "populate_columns": false,
+          "skip_execution": false,
+          "table_columns": [
+            {
+              "column_name": "type",
+              "column_type": "string"
+            },
+            {
+              "column_name": "number",
+              "column_type": "string"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01KZ4FM4V2UZT304UKXnd1YoM7b79IdW2MH",
+        "name": "Add Row to Table",
+        "title": "Add Row to Table",
+        "type": "core.addrowtotable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Add Row to Table",
+          "input_table": "$activity.definition_activity_01KZ4DKUAFMZ66I9o5mDmxSnbMpvXYcGlHL.output.read_table_from_json$",
+          "row": [
+            {
+              "key": "type",
+              "type": "string",
+              "value": "android"
+            },
+            {
+              "key": "number",
+              "type": "string",
+              "value": "101-555-1234"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01KZ4M5DV0F056823bxCu4uvsStZDuShOgf",
+        "name": "Delete from Table",
+        "title": "Delete from Table",
+        "type": "core.deleterowfromtable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Delete from Table",
+          "input_table": "$activity.definition_activity_01KZ4DKUAFMZ66I9o5mDmxSnbMpvXYcGlHL.output.read_table_from_json$",
+          "rows": {
+            "rows_matching_criteria": true,
+            "where_clause": "type = \"android\""
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01KZ4HA9JTWCS7X0GpW1ILgcZFmvXiny4xg",
+        "name": "Read Table from XML",
+        "title": "Read Table from XML",
+        "type": "corejava.read_table_from_xml",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Read Table from XML",
+          "input_xml": "\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\n\u003cbookstore\u003e\n\n\u003cbook category=\"cooking\"\u003e\n  \u003ctitle lang=\"en\"\u003eEveryday Italian\u003c/title\u003e\n  \u003cauthor\u003eGiada De Laurentiis\u003c/author\u003e\n  \u003cyear\u003e2005\u003c/year\u003e\n  \u003cprice\u003e30.00\u003c/price\u003e\n\u003c/book\u003e\n\n\u003cbook category=\"children\"\u003e\n  \u003ctitle lang=\"en\"\u003eHarry Potter\u003c/title\u003e\n  \u003cauthor\u003eJ K. Rowling\u003c/author\u003e\n  \u003cyear\u003e2005\u003c/year\u003e\n  \u003cprice\u003e29.99\u003c/price\u003e\n\u003c/book\u003e\n\n\u003cbook category=\"web\"\u003e\n  \u003ctitle lang=\"en\"\u003eXQuery Kick Start\u003c/title\u003e\n  \u003cauthor\u003eJames McGovern\u003c/author\u003e\n  \u003cauthor\u003ePer Bothner\u003c/author\u003e\n  \u003cauthor\u003eKurt Cagle\u003c/author\u003e\n  \u003cauthor\u003eJames Linn\u003c/author\u003e\n  \u003cauthor\u003eVaidyanathan Nagarajan\u003c/author\u003e\n  \u003cyear\u003e2003\u003c/year\u003e\n  \u003cprice\u003e49.99\u003c/price\u003e\n\u003c/book\u003e\n\n\u003cbook category=\"web\"\u003e\n  \u003ctitle lang=\"en\"\u003eLearning XML\u003c/title\u003e\n  \u003cauthor\u003eErik T. Ray\u003c/author\u003e\n  \u003cyear\u003e2003\u003c/year\u003e\n  \u003cprice\u003e39.95\u003c/price\u003e\n\u003c/book\u003e\n\n\u003c/bookstore\u003e",
+          "persist_output": true,
+          "populate_columns": false,
+          "skip_execution": false,
+          "table_columns": [
+            {
+              "column_name": "title",
+              "column_type": "string"
+            },
+            {
+              "column_name": "author",
+              "column_type": "string"
+            },
+            {
+              "column_name": "year",
+              "column_type": "string"
+            },
+            {
+              "column_name": "price",
+              "column_type": "string"
+            }
+          ],
+          "xmlpath_query": "/bookstore/book"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01KZ4JZTDWNO05ijqlJcziVH5QX733I8hhG",
+        "name": "Update Row in Table",
+        "title": "Update Row in Table",
+        "type": "core.updaterowintable",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "columns": [
+            {
+              "column_name": "author",
+              "column_type": "string"
+            }
+          ],
+          "continue_on_failure": false,
+          "display_name": "Update Row in Table",
+          "input_table": "$activity.definition_activity_01KZ4HA9JTWCS7X0GpW1ILgcZFmvXiny4xg.output.read_table_from_xml$",
+          "row": [
+            {
+              "key": "author",
+              "type": "string",
+              "value": "J. K. Rowling"
+            }
+          ],
+          "rows": {
+            "rows_matching_criteria": true,
+            "where_clause": "author = \"J K. Rowling\""
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
