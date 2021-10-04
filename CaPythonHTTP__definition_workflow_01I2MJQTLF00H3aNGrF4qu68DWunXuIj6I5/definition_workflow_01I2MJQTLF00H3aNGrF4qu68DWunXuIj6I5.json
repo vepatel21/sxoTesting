@@ -1,0 +1,568 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5",
+    "name": "Copy-Copy-Regression_CA Python Test- HTTP",
+    "title": "Copy-Copy-Regression_CA Python Test- HTTP",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "All Actions True/False",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01I2MJQSJJBUD0ypqtIAwMbUC1meau8bTJB",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Action Orchestrator Workflow Use Action Orchestrator to automate an IT es by defining a workflow, then running instances of the defined workflow. The workflow defines the automation steps (activities), the logic or flow between these steps, and how to flow data from one step to the next. The engine manages the state and lifecycle of a workflow, bringing it into existence, running its steps, and finally terminating it. During and (by default) after workflow execution, the engine retains information so that operators can view the status of their running workflows. Related Topics Creating a Basic Workflow Category Action Orchestrator workflows, tasks and several other elements of the functional model can be placed into categories. Categories in Action Orchestrator work just like Microsoft Outlook categories with respect to tagging objects for grouping in the UI. Objects such as workflows can be in multiple categories. For example, a workflow can be both a network best practice and a security best practice. The Categories feature provides a way to organize your workflows based on your organizational or functional requirements. Action Orchestrator ships with predefined categories but provides the functionality for you to create your own business-specific categories. When creating a workflow, you can assign the workflow to a category. You can also add other categories to a category to create a hierarchy. Activities Activities are the steps in a workflow. They are customized to perform integration with some environment. Activities can be provided by adapters (binary components in Action Orchestrator) or by automation packs. Therefore both adapters and automation packs can contribute to a particular integration. Workflow activities provide the logic or flow aspects of the workflow. Workflow activities are exposed in the Logic tab of the workflow Editor. Related Topic Adding Logic Components to a Workflow Conditions Many workflow logic elements perform tests to control execution. Conditions implement these tests. For example, a Condition Branch can split execution to take one path if a condition exists, and another if it does not. A While Block can iterate execution while a condition exists. Conditions can also be placed on a workflow trigger, allowing control of situations in which the workflow can run. For example, a scenario might require the workflow to run during two different time ranges, which would require two triggers: one trigger with an 8am-5pm condition and a totally different trigger with a 5pm-8am condition. There are two basic types of conditions: Composite conditions A composite condition builds a compound condition from individual conditions. It allows combining conditions with AND logic, where all of the conditions must be TRUE for the composite condition to be TRUE, or OR logic, where any of the conditions can be TRUE for the composite condition to return TRUE. Compound conditions can be used in other compound conditions to produce complex logic, such as ((X AND Y) OR (A AND B)). Account Keys A account key record stores information about the user security context and passes this information to the adapters for activity execution, event monitoring, and some target operations (such as availability monitoring and discovery). Account Key instances can be shared across targets and workflows. For example, if a single set of credentials can be used to access a set of network devices, only one account key instance must be created. When it is time to change the credentials, users can go to the account keys list and edit the single instance to change the credentials. This greatly reduces the configuration load when credentials tend to change often in some environments. Account Key credentials can be used in a workflow, but no workflow can retrieve credentials. If your workflow must access credentials, use hidden string variables. The account key user concept allows the product to implement delegation. For example: An IT help desk operator comes to Action Orchestrator to run a workflow. This operator is presented with a list of workflows that Action Orchestrator role-based access control allows them to run. These workflows might include activities that require a level of security permission that the operator does not natively have. The operator can perform actions as a part of the established workflow that are not possible for them to perform manually. This concept can also be leveraged to reveal where operators make changes outside of a workflow. By examining auditing logs such as Windows logs for things being done under the operator's credentials rather than the Action Orchestrator  account key user credentials, it is possible to determine how the operator is doing things outside of workflow and determine how to close things down. So a side effect of Action Orchestrator automation is that customers might be able to tighten security in their environment. Targets Targets are instances created from a target type. For example: A terminal target allows SSH or telnet to some specific network device. A database target allows connection to specific supported databases. A workflow or activity executes an action within some environment.",
+          "scope": "local",
+          "name": "Python String",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01I2MJQSJJEJ61C8U04TCY1iQELudkFezCq",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email Template",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01I2MJQSJJFRX4b2bOXzHKeTIEyvTonxARX",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Copy-Copy-Regression_CA Python Test- HTTP",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01I2MJS4EZ4YR0ft841zdzeNy0olpla0JZm",
+        "name": "Parallel Block",
+        "title": "Python Script",
+        "type": "logic.parallel",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Python Script",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01I2MJSH7TFXE5o28JS5OOOqMFp6519BYc9",
+            "name": "Parallel Branch",
+            "title": "EXECUTE PYTHON SCRIPT 3",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "EXECUTE PYTHON SCRIPT 3",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU",
+                "name": "Execute Python Script",
+                "title": "Basic Test",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Basic Test",
+                  "script": "print(\"Action Orchestrator Workflow Use Action Orchestrator to automate an IT es by defining a workflow, then running instances of the defined workflow. The workflow defines the automation steps (activities), the logic or flow between these steps, and how to flow data from one step to the next. The engine manages the state and lifecycle of a workflow, bringing it into existence, running its steps, and finally terminating it. During and (by default) after workflow execution, the engine retains information so that operators can view the status of their running workflows. Related Topics Creating a Basic Workflow Category Action Orchestrator workflows, tasks and several other elements of the functional model can be placed into categories. Categories in Action Orchestrator work just like Microsoft Outlook categories with respect to tagging objects for grouping in the UI. Objects such as workflows can be in multiple categories. For example, a workflow can be both a network best practice and a security best practice. The Categories feature provides a way to organize your workflows based on your organizational or functional requirements. Action Orchestrator ships with predefined categories but provides the functionality for you to create your own business-specific categories. When creating a workflow, you can assign the workflow to a category. You can also add other categories to a category to create a hierarchy. Activities Activities are the steps in a workflow. They are customized to perform integration with some environment. Activities can be provided by adapters (binary components in Action Orchestrator) or by automation packs. Therefore both adapters and automation packs can contribute to a particular integration. Workflow activities provide the logic or flow aspects of the workflow. Workflow activities are exposed in the Logic tab of the workflow Editor. Related Topic Adding Logic Components to a Workflow Conditions Many workflow logic elements perform tests to control execution. Conditions implement these tests. For example, a Condition Branch can split execution to take one path if a condition exists, and another if it does not. A While Block can iterate execution while a condition exists. Conditions can also be placed on a workflow trigger, allowing control of situations in which the workflow can run. For example, a scenario might require the workflow to run during two different time ranges, which would require two triggers: one trigger with an 8am-5pm condition and a totally different trigger with a 5pm-8am condition. There are two basic types of conditions: Composite conditions A composite condition builds a compound condition from individual conditions. It allows combining conditions with AND logic, where all of the conditions must be TRUE for the composite condition to be TRUE, or OR logic, where any of the conditions can be TRUE for the composite condition to return TRUE. Compound conditions can be used in other compound conditions to produce complex logic, such as ((X AND Y) OR (A AND B)). Account Keys A account key record stores information about the user security context and passes this information to the adapters for activity execution, event monitoring, and some target operations (such as availability monitoring and discovery). Account Key instances can be shared across targets and workflows. For example, if a single set of credentials can be used to access a set of network devices, only one account key instance must be created. When it is time to change the credentials, users can go to the account keys list and edit the single instance to change the credentials. This greatly reduces the configuration load when credentials tend to change often in some environments. Account Key credentials can be used in a workflow, but no workflow can retrieve credentials. If your workflow must access credentials, use hidden string variables. The account key user concept allows the product to implement delegation. For example: An IT help desk operator comes to Action Orchestrator to run a workflow. This operator is presented with a list of workflows that Action Orchestrator role-based access control allows them to run. These workflows might include activities that require a level of security permission that the operator does not natively have. The operator can perform actions as a part of the established workflow that are not possible for them to perform manually. This concept can also be leveraged to reveal where operators make changes outside of a workflow. By examining auditing logs such as Windows logs for things being done under the operator's credentials rather than the Action Orchestrator  account key user credentials, it is possible to determine how the operator is doing things outside of workflow and determine how to close things down. So a side effect of Action Orchestrator automation is that customers might be able to tighten security in their environment. Targets Targets are instances created from a target type. For example: A terminal target allows SSH or telnet to some specific network device. A database target allows connection to specific supported databases. A workflow or activity executes an action within some environment.\")",
+                  "script_arguments": [
+                    ""
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJT3L4LU90tH2vSWqrwj09mwvCON5eF",
+                "name": "Execute Python Script",
+                "title": "Verify Leap Year",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Verify Leap Year",
+                  "script": "# Python program to check if year is a leap year or not\n\nyear = 2000\n\n# To get year (integer input) from the user\n# year = int(input(\"Enter a year: \"))\n\nif (year % 4) == 0:\n   if (year % 100) == 0:\n       if (year % 400) == 0:\n           print(\"{0} is a leap year\".format(year))\n       else:\n           print(\"{0} is not a leap year\".format(year))\n   else:\n       print(\"{0} is a leap year\".format(year))\nelse:\n   print(\"{0} is not a leap year\".format(year))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJTG5W6510uo4zLAo9M6heK0iUvqhau",
+                "name": "Execute Python Script",
+                "title": "Matrics Additions",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Matrics Additions",
+                  "script": "# This program is to add two given matrices\n# We are using the concept of nested lists to represent matrix\n\n# first matrix\nM1 = [[1, 1, 1],\n      [1, 1, 1],\n      [1, 1, 1]]\n\n# second matrix\nM2 = [[1, 2, 3],\n      [4, 5, 6],\n      [7, 8, 9]]\n\n# In this matrix we will store the sum of above matrices\n# we have initialized all the elements of this matrix as zero\nsum = [[0, 0, 0],\n       [0, 0, 0],\n       [0, 0, 0]]\n\n# iterating the matrix\n# rows: number of nested lists in the main list\n# columns: number of elements in the nested lists\nfor i in range(len(M1)):\n    for j in range(len(M1[0])):\n        sum[i][j] = M1[i][j] + M2[i][j]\n\n# displaying the output matrix\nfor num in sum:\n    print(num)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk",
+                "name": "Execute Python Script",
+                "title": "Sleep 5 Seconds using Python script",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Sleep 5 Seconds using Python script",
+                  "script": "import time\n\ntime.sleep(5)\nfrom datetime import datetime",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJU9XB0F36dFoTolpBlTNdyAIWwFkRo",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script for getting current Date",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script for getting current Date",
+                  "script": "from datetime import date\ntoday = date.today()\nprint(\"Today's date:\", today)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script_TCP_IP",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script_TCP_IP",
+                  "script": "import socket\n\nTCP_IP = 'yahoo.com'\nTCP_PORT = 443\nBUFFER_SIZE = 1024\nMESSAGE = 'Hello, World'.encode()\ns = socket.socket(socket.AF_INET, socket.SOCK_STREAM)\ns.connect((TCP_IP, TCP_PORT))\ns.send(MESSAGE)\ndata = s.recv(BUFFER_SIZE)\ns.close()\nprint(\"received data:\", data, MESSAGE)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01I2MJV0F0ZDH6aPFyv2GXpihsg6QoYLBju",
+            "name": "Parallel Branch",
+            "title": "EXECUTE PYTHON SCRIPT 3",
+            "type": "logic.parallel_block",
+            "base_type": "activity",
+            "properties": {
+              "continue_on_failure": true,
+              "display_name": "EXECUTE PYTHON SCRIPT 3",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH",
+                "name": "Execute Python Script",
+                "title": "Time Conversion 24 houurs to 12 hours",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Time Conversion 24 houurs to 12 hours",
+                  "script": "# Python program to convert time \n# from 12 hour to 24 hour format \n\n# Function to convert the date format \ndef convert24(str1): \n\t\n\t# Checking if last two elements of time \n\t# is AM and first two elements are 12 \n\tif str1[-2:] == \"AM\" and str1[:2] == \"12\": \n\t\treturn \"00\" + str1[2:-2] \n\t\t\n\t# remove the AM\t \n\telif str1[-2:] == \"AM\": \n\t\treturn str1[:-2] \n\t\n\t# Checking if last two elements of time \n\t# is PM and first two elements are 12 \n\telif str1[-2:] == \"PM\" and str1[:2] == \"12\": \n\t\treturn str1[:-2] \n\t\t\n\telse: \n\t\t\n\t\t# add 12 to hours and remove PM \n\t\treturn str(int(str1[:2]) + 12) + str1[2:8] \n\n# Driver Code\t\t \nprint(convert24(\"08:05:45 PM\"))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJVNU30R12q9msnDSfUU0p6OClVteZd",
+                "name": "Execute Python Script",
+                "title": "Grade Calculator ",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Grade Calculator ",
+                  "script": "# Python code for the Grade \n# Calculator program in action \n  \n# Creating a dictionary which  \n# consists of the student name, \n# assignment result test results \n# and their respective lab results \n  \n# 1. Jack's dictionary \njack = { \"name\":\"Jack Frost\", \n         \"assignment\" : [80, 50, 40, 20], \n         \"test\" : [75, 75], \n         \"lab\" : [78.20, 77.20] \n       } \n         \n# 2. James's dictionary \njames = { \"name\":\"James Potter\", \n          \"assignment\" : [82, 56, 44, 30], \n          \"test\" : [80, 80], \n          \"lab\" : [67.90, 78.72] \n        } \n  \n# 3. Dylan's dictionary \ndylan = { \"name\" : \"Dylan Rhodes\", \n          \"assignment\" : [77, 82, 23, 39], \n          \"test\" : [78, 77], \n          \"lab\" : [80, 80] \n        } \n          \n# 4. Jessica's dictionary \njess = { \"name\" : \"Jessica Stone\", \n         \"assignment\" : [67, 55, 77, 21], \n         \"test\" : [40, 50], \n         \"lab\" : [69, 44.56] \n       } \n         \n# 5. Tom's dictionary \ntom = { \"name\" : \"Tom Hanks\", \n        \"assignment\" : [29, 89, 60, 56], \n        \"test\" : [65, 56], \n        \"lab\" : [50, 40.6] \n      } \n  \n# Function calculates average  \ndef get_average(marks): \n    total_sum = sum(marks) \n    total_sum = float(total_sum) \n    return total_sum / len(marks) \n  \n# Function calculates total average \ndef calculate_total_average(students): \n    assignment = get_average(students[\"assignment\"]) \n    test = get_average(students[\"test\"]) \n    lab = get_average(students[\"lab\"]) \n  \n    # Return the result based \n    # on weightage supplied \n    # 10 % from assignments \n    # 70 % from test \n    # 20 % from lab-works \n    return (0.1 * assignment +\n            0.7 * test + 0.2 * lab) \n  \n  \n# Calculate letter grade of each student \ndef assign_letter_grade(score): \n    if score \u003e= 90: return \"A\"\n    elif score \u003e= 80: return \"B\"\n    elif score \u003e= 70: return \"C\"\n    elif score \u003e= 60: return \"D\"\n    else : return \"E\"\n  \n# Function to calculate the total \n# average marks of the whole class \ndef class_average_is(student_list): \n    result_list = [] \n  \n    for student in student_list: \n        stud_avg = calculate_total_average(student) \n        result_list.append(stud_avg) \n        return get_average(result_list) \n  \n# Student list consisting the \n# dictionary of all students \nstudents = [jack, james, dylan, jess, tom] \n  \n# Iterate through the students list \n# and calculate their respective \n# average marks and letter grade \nfor i in students : \n    print(i[\"name\"]) \n    print(\"=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=\") \n    print(\"Average marks of %s is : %s \" %(i[\"name\"], \n                         calculate_total_average(i))) \n                           \n    print(\"Letter Grade of %s is : %s\" %(i[\"name\"], \n    assign_letter_grade(calculate_total_average(i)))) \n      \n    print() \n  \n  \n# Calculate the average of whole class \nclass_av = class_average_is(students) \n  \nprint( \"Class Average is %s\" %(class_av)) \nprint(\"Letter Grade of the class is %s \" \n        %(assign_letter_grade(class_av)))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJVZW6GF61GyLFCpFhctdP3ojririv6",
+                "name": "Execute Python Script",
+                "title": "Getting current dates in different formats",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Getting current dates in different formats",
+                  "script": "from datetime import date\ntoday = date.today()\n# dd/mm/YY\nd1 = today.strftime(\"%d/%m/%Y\")\nprint(\"d1 =\", d1)\n# Textual month, day and year\t\nd2 = today.strftime(\"%B %d, %Y\")\nprint(\"d2 =\", d2)\n# mm/dd/y\nd3 = today.strftime(\"%m/%d/%y\")\nprint(\"d3 =\", d3)\n# Month abbreviation, day and year\t\nd4 = today.strftime(\"%b-%d-%Y\")\nprint(\"d4 =\", d4)",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f",
+                "name": "Execute Python Script",
+                "title": "Make HTTP Call",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Make HTTP Call",
+                  "script": "import requests\nresult = requests.get('https://www.google.com')",
+                  "script_queries": [
+                    {
+                      "script_query": "result",
+                      "script_query_name": "result",
+                      "script_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR",
+                "name": "Execute Python Script",
+                "title": "Get  HTTP Call response",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Get  HTTP Call response",
+                  "script": "import requests\na = requests.get('http://www.google.com')\nStatusCode = a.status_code\nText = a.text\nJson = a.json\nHeaders = a.headers",
+                  "script_queries": [
+                    {
+                      "script_query": "StatusCode",
+                      "script_query_name": "StatusCode ",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Text",
+                      "script_query_name": "Text ",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Json",
+                      "script_query_name": "Json",
+                      "script_query_type": "string"
+                    },
+                    {
+                      "script_query": "Headers",
+                      "script_query_name": "Headers ",
+                      "script_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx",
+                "name": "Execute Python Script",
+                "title": "Execute Python Script_UDP",
+                "type": "python3.script",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Execute Python Script_UDP",
+                  "script": "import socket\nUDP_IP = \"52.205.242.66\"\nUDP_PORT = 443\nMESSAGE = \"Hello, World!\".encode()\nprint (\"UDP target IP:\", UDP_IP)\nprint (\"UDP target port:\", UDP_PORT)\nprint (\"message:\", MESSAGE)\nsock = socket.socket(socket.AF_INET, # Internet\nsocket.SOCK_DGRAM) # UDP\nsock.sendto(MESSAGE, (UDP_IP, UDP_PORT))",
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01I2MJXDZ2B9O74qfGci8PGWPjYROXW8e5Q",
+        "name": "Condition Block",
+        "title": "All Action Should Pass",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "All Action Should Pass",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01I2MJXTC02P36ZEhZ6jgbpfke1FOnGCxtF",
+            "name": "Condition Branch",
+            "title": "true == 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": "$activity.definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU.output.succeeded$",
+                            "operator": "eq",
+                            "right_operand": true
+                          },
+                          "operator": "and",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk.output.succeeded$",
+                            "operator": "eq",
+                            "right_operand": true
+                          }
+                        },
+                        "operator": "and",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH.output.succeeded$",
+                          "operator": "eq",
+                          "right_operand": true
+                        }
+                      },
+                      "operator": "and",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f.output.succeeded$",
+                        "operator": "eq",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "and",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR.output.succeeded$",
+                      "operator": "eq",
+                      "right_operand": true
+                    }
+                  },
+                  "operator": "and",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  }
+                },
+                "operator": "and",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "true == 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01I2MJY4O74UX2EdV8BvHQDH96u2Og5hD6i",
+                "name": "Set Variables",
+                "title": "PASS",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "PASS",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5.output.variable_workflow_01I2MJQSJJBUD0ypqtIAwMbUC1meau8bTJB$",
+                      "variable_value_new": "✔✅All Python  Actions Passed"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01I2MJYNMYKCR0FWFVe6nG9S1RcP0pFXnvO",
+            "name": "Condition Branch",
+            "title": "Fail !== 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": {
+                  "left_operand": {
+                    "left_operand": {
+                      "left_operand": {
+                        "left_operand": {
+                          "left_operand": {
+                            "left_operand": {
+                              "left_operand": "$activity.definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU.output.succeeded$",
+                              "operator": "ne",
+                              "right_operand": true
+                            },
+                            "operator": "or",
+                            "right_operand": {
+                              "left_operand": "$activity.definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk.output.succeeded$",
+                              "operator": "ne",
+                              "right_operand": true
+                            }
+                          },
+                          "operator": "or",
+                          "right_operand": {
+                            "left_operand": "$activity.definition_activity_01I2MJU9XB0F36dFoTolpBlTNdyAIWwFkRo.output.succeeded$",
+                            "operator": "ne",
+                            "right_operand": true
+                          }
+                        },
+                        "operator": "or",
+                        "right_operand": {
+                          "left_operand": "$activity.definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH.output.succeeded$",
+                          "operator": "ne",
+                          "right_operand": true
+                        }
+                      },
+                      "operator": "or",
+                      "right_operand": {
+                        "left_operand": "$activity.definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f.output.succeeded$",
+                        "operator": "ne",
+                        "right_operand": true
+                      }
+                    },
+                    "operator": "or",
+                    "right_operand": {
+                      "left_operand": "$activity.definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR.output.succeeded$",
+                      "operator": "ne",
+                      "right_operand": true
+                    }
+                  },
+                  "operator": "or",
+                  "right_operand": {
+                    "left_operand": "$activity.definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8.output.succeeded$",
+                    "operator": "eq",
+                    "right_operand": true
+                  }
+                },
+                "operator": "or",
+                "right_operand": {
+                  "left_operand": "$activity.definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx.output.succeeded$",
+                  "operator": "eq",
+                  "right_operand": true
+                }
+              },
+              "continue_on_failure": true,
+              "display_name": "Fail !== 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01I2MJYYZLZPZ4GAWymX721AqT9ywEMA5ZK",
+                "name": "Set Variables",
+                "title": "FAIL",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "FAIL",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5.output.variable_workflow_01I2MJQSJJBUD0ypqtIAwMbUC1meau8bTJB$",
+                      "variable_value_new": "❌🔴Python Actions got Failed\nPlease check the Instnace : $workflow.definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5.output.instance_id$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unique_name": "definition_activity_01I2MJZDFMDQ03oR2FjemYK5uzT2pccxDZn",
+        "name": "Set Variables",
+        "title": "Email Tempalate",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Email Tempalate",
+          "skip_execution": false,
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5.output.variable_workflow_01I2MJQSJJFRX4b2bOXzHKeTIEyvTonxARX$",
+              "variable_value_new": "\u003ch2\u003ePython3 Adapter\u003c/h2\u003e\n\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eStatus Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eBasic Python Test\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJSSOR7306md2Ts156PBi6Hs8PX6zTU.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eSleep 5 seconds with Script\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJTVZL9846YdyjUmWUBzV3LQ2AMbawk.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eGetting current date using script\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJU9XB0F36dFoTolpBlTNdyAIWwFkRo.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJU9XB0F36dFoTolpBlTNdyAIWwFkRo.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJU9XB0F36dFoTolpBlTNdyAIWwFkRo.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eCurrent date In different Formats\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJVC190MI6QYAPaONXhayNNE9DCxaYH.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eMaking HTTP call\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWC5AO1V43V14Zst6qhdQvmyOnKX7f.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eGetting HTTP  Responce\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJWOK99DP5iJvmG3a22e68cb9zRApLR.output.error.message$\u003c/td\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eExecute Python Script_TCP_IP\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJUO1BRNB2D9qRUC0HcLlxg8hNw1EI8.output.error.message$\u003c/td\u003e\n\n\u003ctr\u003e\n\u003ctd\u003eExecute Python Script_UDP\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01I2MJX09IGKF4vqq4buQnalncUQRY7Uwzx.output.error.message$\u003c/td\u003e\n\n\u003c/tr\u003e\n\u003c/table\u003e\n\n$workflow.definition_workflow_01I2MJQTLF00H3aNGrF4qu68DWunXuIj6I5.output.variable_workflow_01I2MJQSJJBUD0ypqtIAwMbUC1meau8bTJB$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd",
+      "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A"
+    ]
+  },
+  "categories": {
+    "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd": {
+      "unique_name": "category_01A6G0DX5INHM6ldk8Lqix0oZCVNmTckhEd",
+      "name": "Regression",
+      "title": "Regression",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    },
+    "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A": {
+      "unique_name": "category_01GUFX9FVCE283ZPiHKK9kqAufyYonIV94A",
+      "name": "CA Web Services",
+      "title": "CA Web Services",
+      "type": "basic.category",
+      "base_type": "category",
+      "category_type": "custom",
+      "object_type": "category"
+    }
+  }
+}
