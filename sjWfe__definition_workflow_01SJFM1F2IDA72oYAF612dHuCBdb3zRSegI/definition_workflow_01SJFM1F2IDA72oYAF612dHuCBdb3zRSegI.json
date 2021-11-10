@@ -1,0 +1,136 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01SJFM1F2IDA72oYAF612dHuCBdb3zRSegI",
+    "name": "sj_wfe",
+    "title": "sj_wfe",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "sj_wfe",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "no_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01SNKKMY0DJDS3EIXgCpuPO1dzWwCKsf4T8",
+        "name": "Wait For Event",
+        "title": "Wait For Event",
+        "type": "task.wait_for_event",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Wait For Event",
+          "event_info": {
+            "add_event": true,
+            "event_definition": {
+              "conditions": {
+                "left_operand": "$output.request_body$",
+                "operator": "eq",
+                "right_operand": "{\"message\":\"test\"}"
+              },
+              "webhook_id": "01SOISRWGVZGZ4vLWHAPFhezyWZViCQQY37"
+            }
+          },
+          "event_type": "webhook.event",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01SJFM7M4Z4Z754a8qTGlhpxe6F8mKqAte3",
+        "name": "Wait For Event",
+        "title": "Wait For Event",
+        "type": "task.wait_for_event",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Wait For Event",
+          "event_info": {
+            "add_event": true,
+            "event_definition": {
+              "conditions": {
+                "left_operand": "$output.subject_line$",
+                "operator": "eqi",
+                "right_operand": "test"
+              }
+            }
+          },
+          "event_type": "approval_task.event",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01SL11CYGV1394phDU5cTcFHfFH5zhRzJtp",
+        "name": "Execute Terminal Command(s)",
+        "title": "Execute Terminal Command(s)",
+        "type": "terminal.command",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "command_timeout": 60,
+          "commands": "ls -l",
+          "continue_on_failure": false,
+          "display_name": "Execute Terminal Command(s)",
+          "merge_commands": false,
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_01F53BPPIV5CG5anser59AwI5Qnn2W865QQ"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_01F53BPPIV5CG5anser59AwI5Qnn2W865QQ": {
+      "unique_name": "definition_target_01F53BPPIV5CG5anser59AwI5Qnn2W865QQ",
+      "name": "RG terminal",
+      "title": "RG terminal",
+      "type": "terminal.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_01HGIT21ONJK51KZPTst06uVKDjAFeALYRr",
+        "description": "updated test",
+        "display_name": "RG terminal",
+        "host": "3.17.204.145",
+        "port": 22,
+        "protocol": "ssh"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01HGIT21ONJK51KZPTst06uVKDjAFeALYRr": {
+      "unique_name": "definition_runtime_user_01HGIT21ONJK51KZPTst06uVKDjAFeALYRr",
+      "name": "ry ao-terminal ssh",
+      "title": "ry ao-terminal ssh",
+      "type": "runtime_user.terminal_key_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "description": "test",
+        "display_name": "ry ao-terminal ssh",
+        "key": "*****",
+        "user": "*****"
+      }
+    }
+  }
+}
