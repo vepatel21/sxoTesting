@@ -1,0 +1,739 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l",
+    "name": "CA- Automation Skip Accountkeys while Importing Workflow",
+    "title": "CA- Automation Skip Accountkeys while Importing Workflow",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "  \"workflow\": {\n    \"unique_name\": \"definition_workflow_01KMO4IEJ80ZL2MPQBJ2v079VkUsJRQuPaG\",\n    \"name\": \"CA Send email 2\",\n    \"title\": \"CA Send email 2\",\n    \"type\": \"generic.workflow\",\n    \"base_type\": \"workflow\",\n    \"variables\": [\n      {\n        \"schema_id\": \"datatype.integer\",\n        \"properties\": {\n          \"value\": 1,\n          \"scope\": \"local\",\n          \"name\": \"Set Var\",\n          \"type\": \"datatype.integer\",\n          \"is_required\": false,\n          \"is_invisible\": false\n        },\n        \"unique_name\": \"variable_workflow_01KMOGHD3ROCY1Cds2wBIUTPTJ6BY6i4yWM\",\n        \"object_type\": \"variable_workflow\"\n      }\n    ],\n    \"properties\": {\n      \"atomic\": {\n        \"is_atomic\": false\n      },\n      \"delete_workflow_instance\": false,\n      \"display_name\": \"CA Send email 2\",\n      \"runtime_user\": {\n        \"override_target_runtime_user\": false,\n        \"specify_on_workflow_start\": false,\n        \"target_default\": true\n      },\n      \"target\": {\n        \"target_type\": \"email.smtp_endpoint\",\n        \"target_id\": \"definition_target_01IQ7K8XTAUDT5fBuQNdvT4ikXVehulaCMB\",\n        \"execute_on_workflow_target\": true\n      }\n    },\n    \"object_type\": \"definition_workflow\",\n    \"actions\": [\n      {\n        \"unique_name\": \"definition_activity_01KMO7JLYKRNF5iqcYZACIfEN2Eg8DzV05f\",\n        \"name\": \"While Loop\",\n        \"title\": \"While Loop\",\n        \"type\": \"logic.while\",\n        \"base_type\": \"activity\",\n        \"properties\": {\n          \"continue_on_failure\": false,\n          \"display_name\": \"While Loop\",\n          \"skip_execution\": false\n        },\n        \"object_type\": \"definition_activity\",\n        \"blocks\": [\n          {\n            \"unique_name\": \"definition_activity_01KMO7KZ2BC9D1aKkZxpiImDoCc3gd9i18e\",\n            \"name\": \"Condition Branch\",\n            \"title\": \"Condition Branch\",\n            \"type\": \"logic.condition_block\",\n            \"base_type\": \"activity\",\n            \"properties\": {\n              \"condition\": {\n                \"left_operand\": \"$workflow.definition_workflow_01KMO4IEJ80ZL2MPQBJ2v079VkUsJRQuPaG.local.variable_workflow_01KMOGHD3ROCY1Cds2wBIUTPTJ6BY6i4yWM$\",\n                \"operator\": \"lte\",\n                \"right_operand\": 8\n              },\n              \"continue_on_failure\": false,\n              \"display_name\": \"Condition Branch\",\n              \"skip_execution\": false\n            },\n            \"object_type\": \"definition_activity\",\n            \"actions\": [\n              {\n                \"unique_name\": \"definition_activity_01KMO4PEUW2EW0gQwXNK373OSGCbHYnG5Ue\",\n                \"name\": \"Send Email\",\n                \"title\": \"Send Email\",\n                \"type\": \"email.smtp_send_email\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"action_timeout\": 180,\n                  \"body\": \"Message from\",\n                  \"continue_if_one_address_valid\": false,\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Send Email\",\n                  \"runtime_user\": {\n                    \"override_target_runtime_user\": false,\n                    \"target_default\": true\n                  },\n                  \"skip_execution\": false,\n                  \"subject\": \"Test multiple_5555_Tenant\",\n                  \"target\": {\n                    \"override_workflow_target\": false,\n                    \"override_workflow_target_group_criteria\": false,\n                    \"use_workflow_target\": true,\n                    \"use_workflow_target_group\": false\n                  },\n                  \"to\": \"actionorchestrator@gmail.com\"\n                },\n                \"object_type\": \"definition_activity\"\n              },\n              {\n                \"unique_name\": \"definition_activity_01KMOGK6Z5XN15gSn4Q98qZrFqyOI8nWrt0\",\n                \"name\": \"Set Variables\",\n                \"title\": \"Set Variables\",\n                \"type\": \"core.set_multiple_variables\",\n                \"base_type\": \"activity\",\n                \"properties\": {\n                  \"continue_on_failure\": false,\n                  \"display_name\": \"Set Variables\",\n                  \"skip_execution\": false,\n                  \"variables_to_update\": [\n                    {\n                      \"variable_to_update\": \"$workflow.definition_workflow_01KMO4IEJ80ZL2MPQBJ2v079VkUsJRQuPaG.local.variable_workflow_01KMOGHD3ROCY1Cds2wBIUTPTJ6BY6i4yWM$\",\n                      \"variable_value_new\": \"$workflow.definition_workflow_01KMO4IEJ80ZL2MPQBJ2v079VkUsJRQuPaG.local.variable_workflow_01KMOGHD3ROCY1Cds2wBIUTPTJ6BY6i4yWM$+1\"\n                    }\n                  ]\n                },\n                \"object_type\": \"definition_activity\"\n              }\n            ]\n          }\n        ]\n      }\n    ],\n    \"categories\": [\n      \"category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf\"\n    ]\n  },\n  \"targets\": {\n    \"definition_target_01IQ7K8XTAUDT5fBuQNdvT4ikXVehulaCMB\": {\n      \"unique_name\": \"definition_target_01IQ7K8XTAUDT5fBuQNdvT4ikXVehulaCMB\",\n      \"name\": \"CA SMTP\",\n      \"title\": \"CA SMTP\",\n      \"type\": \"email.smtp_endpoint\",\n      \"base_type\": \"target\",\n      \"object_type\": \"definition_target\",\n      \"properties\": {\n        \"default_runtime_user_id\": \"definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe\",\n        \"display_name\": \"CA SMTP\",\n        \"no_runtime_user\": false,\n        \"port\": 587,\n        \"protocol\": \"SMTP\",\n        \"server\": \"smtp.gmail.com\"\n      }\n    }\n  },\n  \"runtime_users\": {\n    \"definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe\": {\n      \"unique_name\": \"definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe\",\n      \"name\": \"CA GMAIL\",\n      \"title\": \"CA GMAIL\",\n      \"type\": \"runtime_user.email_credentials\",\n      \"base_type\": \"runtime_user\",\n      \"object_type\": \"definition_runtime_user\",\n      \"properties\": {\n        \"description\": \"fgyhjk\",\n        \"display_name\": \"CA GMAIL\",\n        \"password\": \"*****\",\n        \"sender\": \"*****\"\n      }\n    }\n  }\n}",
+          "scope": "local",
+          "name": "Skip Accountkey WF Payload",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRW885T9TRH0byVjd4MuWG2o9dPqzgddS",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Validation",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRZQLC8OP871EqpJciya0iVhpTSQODtUW",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Provide Email App Password for  actionorchestrator@gmail.com",
+          "type": "datatype.secure_string",
+          "description": " Provide Email App Password for  actionorchestrator@gmail.comto Create Keys to  update target with keys",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRW885T9W6Q2ugCx4MGOOCWvNthxr6Wma",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Email Template",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRZOCM1RF0Q7Ak3c85Ec0QZJOK5ptUbqr",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Bearer ",
+          "scope": "input",
+          "name": "Provide Token",
+          "type": "datatype.string",
+          "is_required": true,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "Authorization",
+          "scope": "local",
+          "name": "Authorization",
+          "type": "datatype.string",
+          "is_required": false,
+          "is_invisible": false
+        },
+        "unique_name": "variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "CA- Automation Skip Accountkeys while Importing Workflow",
+      "runtime_user": {
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "target_id": "definition_target_01EOZMYH25RSG1rDfjUIjQwHEPioIElydk9",
+        "execute_on_workflow_target": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk",
+        "name": "HTTP Request",
+        "title": "Import WF Skip  Accountkeys",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "{\n  \"runtime_users_skip_list\": [\n    \"definition_runtime_user_01IN0E0V8IWMV3J7zmGGmbZXiDjx9lZGgWe\"\n  ],\n$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9TRH0byVjd4MuWG2o9dPqzgddS$",
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+              "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+            }
+          ],
+          "display_name": "Import WF Skip  Accountkeys",
+          "method": "POST",
+          "relative_url": "be-importexport/api/v1/workflows/import?create_new=true\u0026overwrite=false\u0026workflow_unique_name=definition_workflow_01KMO4IEJ80ZL2MPQBJ2v079VkUsJRQuPaG",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRW88X2W4O32DMU9JvQ4lMpc8Gw4jadQB",
+        "name": "Sleep",
+        "title": "Sleep 15 Seconds",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Sleep 15 Seconds",
+          "skip_execution": false,
+          "sleep_interval": 25
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO",
+        "name": "JSONPath Query",
+        "title": "Extract Workflow ID",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extract Workflow ID",
+          "input_json": "$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..id",
+              "jsonpath_query_name": "Workflow ID",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc",
+        "name": "HTTP Request",
+        "title": "GET Workflow to verify Import status",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+              "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+            }
+          ],
+          "display_name": "GET Workflow to verify Import status",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MXAVFBCGRN30tQmIJNEy4HkIsNBASSXRw",
+        "name": "JSONPath Query",
+        "title": "Extract Import Status",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extract Import Status",
+          "input_json": "$activity.definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..status.state",
+              "jsonpath_query_name": "WF Import Status",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRWL2LPCV895DMVAe4FiCN0Lo2UxqYU2z",
+        "name": "HTTP Request",
+        "title": "Validate Workflow",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+              "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+            }
+          ],
+          "display_name": "Validate Workflow",
+          "method": "POST",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$/validate",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8",
+        "name": "HTTP Request",
+        "title": "GET Workflow",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": true,
+          "custom_headers": [
+            {
+              "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+              "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+            }
+          ],
+          "display_name": "GET Workflow",
+          "method": "GET",
+          "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$",
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "use_workflow_target": true
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx",
+        "name": "JSONPath Query",
+        "title": "Extracting target ID and WF Validte status",
+        "type": "corejava.jsonpathquery",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": true,
+          "display_name": "Extracting target ID and WF Validte status",
+          "input_json": "$activity.definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8.output.response_body$",
+          "jsonpath_queries": [
+            {
+              "jsonpath_query": "$..[?(@.target)]..target_id",
+              "jsonpath_query_name": "Target ID",
+              "jsonpath_query_type": "string"
+            },
+            {
+              "jsonpath_query": "$.status.state",
+              "jsonpath_query_name": "Workflow Status",
+              "jsonpath_query_type": "string"
+            }
+          ],
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01MRWH2E0LTD135qB6aOogZOXH2WUo1V9rc",
+        "name": "Condition Block",
+        "title": "Skip Creating accountkeys, If Already target Exsited in  Tenant",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": true,
+          "display_name": "Skip Creating accountkeys, If Already target Exsited in  Tenant",
+          "skip_execution": false
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_01MRZFBSEZ4PC3ksNVkUth2KQPZFE6k6bq9",
+            "name": "Condition Branch",
+            "title": "Validate and Delete WF if Target already exsit in tenant",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Workflow Status$",
+                "operator": "eq",
+                "right_operand": "valid"
+              },
+              "continue_on_failure": true,
+              "display_name": "Validate and Delete WF if Target already exsit in tenant",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MRW8KSCKVZN2lPoPU04KhZGvN4CgH1iwR",
+                "name": "HTTP Request",
+                "title": "Delete  Workflow",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Delete  Workflow",
+                  "method": "DELETE",
+                  "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRZQMZC5U212me4zq5zGtvlDZi2tItG1Z",
+                "name": "Set Variables",
+                "title": "Set Var Output (Email Template)",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Var Output (Email Template)",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.output.variable_workflow_01MRZQLC8OP871EqpJciya0iVhpTSQODtUW$",
+                      "variable_value_new": "✔✅ Passed-  WF Imported Successfully and Target Already exsited in system"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.output.variable_workflow_01MRZOCM1RF0Q7Ak3c85Ec0QZJOK5ptUbqr$",
+                      "variable_value_new": "\u003ch2\u003eImport/Eport Using BitBucket\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eError Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSkip Accountkeys and Imprort Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWorkflow Import Status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAVFBCGRN30tQmIJNEy4HkIsNBASSXRw.output.jsonpath_queries.WF Import Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWF Validate Status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Workflow Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctd\u003eDelete Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8KSCKVZN2lPoPU04KhZGvN4CgH1iwR.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8KSCKVZN2lPoPU04KhZGvN4CgH1iwR.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8KSCKVZN2lPoPU04KhZGvN4CgH1iwR.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_01MRWH2MSO1TS2FmyqfVRg1FOStgYJfqQlA",
+            "name": "Condition Branch",
+            "title": "Create  A Keys and update target, if not exsits in Tenant",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Workflow Status$",
+                "operator": "eq",
+                "right_operand": "invalid"
+              },
+              "continue_on_failure": true,
+              "display_name": "Create  A Keys and update target, if not exsits in Tenant",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_01MRW89N3KX7C0VdLNM6EbKdGul5H93I90A",
+                "name": "HTTP Request",
+                "title": "Create Email Accountkeys",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "body": "{\n  \"base_type\": \"runtime_user\",\n  \"type\": \"runtime_user.email_credentials\",\n  \"name\": \"Email keys_ Test Skip Accountkeys\",\n  \"title\": \"Email keys_ Test Skip Accountkeys\",\n  \"properties\": {\n    \"display_name\": \"Email keys_ Test Skip Accountkeys\",\n    \"sender\": \"actionorchestrator@gmail.com\",\n    \"password\": \"$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9W6Q2ugCx4MGOOCWvNthxr6Wma$\"\n  }\n}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Create Email Accountkeys",
+                  "method": "POST",
+                  "relative_url": "be-console/api/v1/runtime_users",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW89T1C8I12dTAewbjxJm6ufatCpEMJQ",
+                "name": "JSONPath Query",
+                "title": "Extract Account Key ID",
+                "type": "corejava.jsonpathquery",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "continue_on_failure": true,
+                  "display_name": "Extract Account Key ID",
+                  "input_json": "$activity.definition_activity_01MRW89N3KX7C0VdLNM6EbKdGul5H93I90A.output.response_body$",
+                  "jsonpath_queries": [
+                    {
+                      "jsonpath_query": "$..id",
+                      "jsonpath_query_name": "Email Account Key ID",
+                      "jsonpath_query_type": "string"
+                    }
+                  ],
+                  "skip_execution": false
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW89ZKGD0K2cFb6RVyQqLV08UT6Zw1wb",
+                "name": "HTTP Request",
+                "title": "Get Target using ID [GET]",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Get Target using ID [GET]",
+                  "method": "GET",
+                  "relative_url": "be-console/api/v1/targets/$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Target ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW8A6ESMOX5HHPalKuc7ibhmWF1cAPYU",
+                "name": "HTTP Request",
+                "title": "Update Target using ID [PUT]",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "body": "{\n  \"id\": \"$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Target ID$\",\n  \"name\": \"CA SMTP\",\n  \"type\": \"email.smtp_endpoint\",\n  \"base_type\": \"target\",\n  \"valid\": false,\n  \"status\": {\n    \"state\": \"created\"\n  },\n  \"def_access_meta\": {\n    \"is_internal\": false\n  },\n  \"title\": \"CA SMTP\",\n  \"properties\": {\n    \"display_name\": \"CA SMTP\",\n    \"no_runtime_user\": false,\n    \"port\": 587,\n    \"protocol\": \"SMTP\",\n    \"server\": \"smtp.gmail.com\",\n    \"default_runtime_user_id\": \"$activity.definition_activity_01MRW89T1C8I12dTAewbjxJm6ufatCpEMJQ.output.jsonpath_queries.Email Account Key ID$\"\n  },\n  \"invalid_properties\": {\n    \"default_runtime_user_id\": \"required missing\"\n  }\n}",
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Update Target using ID [PUT]",
+                  "method": "PUT",
+                  "relative_url": "be-console/api/v1/targets/$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Target ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW8AE4YKOR6PfdKeWuhUqP690qxCChdO",
+                "name": "HTTP Request",
+                "title": "GET Workflow to verify status",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "GET Workflow to verify status",
+                  "method": "GET",
+                  "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW8AKWEW9H1h4FuTWhqz0LjqkAipOVVy",
+                "name": "HTTP Request",
+                "title": "Validate Workflow",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Validate Workflow",
+                  "method": "POST",
+                  "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$/validate",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW8ARKVHPP44PcQP8x36l5gh7Q7Yp7U1",
+                "name": "Sleep",
+                "title": "Sleep 5 Seconds",
+                "type": "core.sleep",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Sleep 5 Seconds",
+                  "skip_execution": false,
+                  "sleep_interval": 5
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRW8AXEMBNS5g6YQJqVDlChqwFV018A8D",
+                "name": "HTTP Request",
+                "title": "Delete Workflow",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Delete Workflow",
+                  "method": "DELETE",
+                  "relative_url": "be-console/api/v1/workflows/$activity.definition_activity_01MRW893GPUNS11EhsrRseT9qEfKniqp4cO.output.jsonpath_queries.Workflow ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRZFI3II7V20ek7afGW3gnjelLxdAdXYE",
+                "name": "HTTP Request",
+                "title": "Delete Target",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Delete Target",
+                  "method": "DELETE",
+                  "relative_url": "be-console/api/v1/targets/$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Target ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MRZG4Q5T2AL3VezfRklfRwiyOuSeM8Mn5",
+                "name": "HTTP Request",
+                "title": "Delete Accountkeys",
+                "type": "web-service.http_request",
+                "base_type": "activity",
+                "properties": {
+                  "action_timeout": 180,
+                  "allow_auto_redirect": true,
+                  "content_type": "application/json",
+                  "continue_on_error_status_code": false,
+                  "continue_on_failure": true,
+                  "custom_headers": [
+                    {
+                      "name": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.local.variable_workflow_01MRW885T9PTD1K4qeQ7taBiz7aAgCf1wV8$",
+                      "value": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.input.variable_workflow_01MRW885T9SFC5E6lkTd09Jna9GL2TRLXfN$"
+                    }
+                  ],
+                  "display_name": "Delete Accountkeys",
+                  "method": "DELETE",
+                  "relative_url": "be-console/api/v1/runtime_users/$activity.definition_activity_01MRW89T1C8I12dTAewbjxJm6ufatCpEMJQ.output.jsonpath_queries.Email Account Key ID$",
+                  "runtime_user": {
+                    "target_default": true
+                  },
+                  "skip_execution": false,
+                  "target": {
+                    "use_workflow_target": true
+                  }
+                },
+                "object_type": "definition_activity"
+              },
+              {
+                "unique_name": "definition_activity_01MXAYKTSJY3V0ARVNE4d3zITXKtLtGrmKX",
+                "name": "Set Variables",
+                "title": "Set Var Output (Email Template)",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": true,
+                  "display_name": "Set Var Output (Email Template)",
+                  "skip_execution": false,
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.output.variable_workflow_01MRZQLC8OP871EqpJciya0iVhpTSQODtUW$",
+                      "variable_value_new": "✔✅ Passed- WF Imported Successfully, Creating keys and updating target"
+                    },
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_01MRW88623TEK4AJF0vLSxCqIMNkrQWyk1l.output.variable_workflow_01MRZOCM1RF0Q7Ak3c85Ec0QZJOK5ptUbqr$",
+                      "variable_value_new": "\u003ch2\u003eSkip Accountkeys While Importing Workflow\u003c/h2\u003e\n\u003ctable\u003e\n\u003ctr\u003e\n\u003cth\u003eActivity Name\u003c/th\u003e\n\u003cth\u003eTrue/False\u003c/th\u003e\n\u003cth\u003eError Code\u003c/th\u003e\n\u003cth\u003eError Message\u003c/th\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eSkip Accountkeys and Imprort Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW88QKF4L22sLW8ynPjYiYs8pn7QaHtk.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWorkflow Import Status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAVFBCGRN30tQmIJNEy4HkIsNBASSXRw.output.jsonpath_queries.WF Import Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MXAP8G21XWY0U1ri5FoyAWMmPaxT8iHOc.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eWF Validate Status\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89GNDQ136goRqYoxSkH3ft33T3pOsx.output.jsonpath_queries.Workflow Status$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89A4NB4J2uyPmKOpPaNEUNcmMZHjJ8.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eCreate Email Accountkeys\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89N3KX7C0VdLNM6EbKdGul5H93I90A.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89N3KX7C0VdLNM6EbKdGul5H93I90A.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW89N3KX7C0VdLNM6EbKdGul5H93I90A.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eUpdating Target With  Accontkeys\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8A6ESMOX5HHPalKuc7ibhmWF1cAPYU.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8A6ESMOX5HHPalKuc7ibhmWF1cAPYU.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8A6ESMOX5HHPalKuc7ibhmWF1cAPYU.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eValidate Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AKWEW9H1h4FuTWhqz0LjqkAipOVVy.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AKWEW9H1h4FuTWhqz0LjqkAipOVVy.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AKWEW9H1h4FuTWhqz0LjqkAipOVVy.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eDelete Workflow\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AXEMBNS5g6YQJqVDlChqwFV018A8D.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AXEMBNS5g6YQJqVDlChqwFV018A8D.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRW8AXEMBNS5g6YQJqVDlChqwFV018A8D.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eDelete Target\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZFI3II7V20ek7afGW3gnjelLxdAdXYE.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZFI3II7V20ek7afGW3gnjelLxdAdXYE.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZFI3II7V20ek7afGW3gnjelLxdAdXYE.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eDelete Accountkeys\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZG4Q5T2AL3VezfRklfRwiyOuSeM8Mn5.output.succeeded$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZG4Q5T2AL3VezfRklfRwiyOuSeM8Mn5.output.error.code$\u003c/td\u003e\n\u003ctd\u003e$activity.definition_activity_01MRZG4Q5T2AL3VezfRklfRwiyOuSeM8Mn5.output.error.message$\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/table\u003e"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
